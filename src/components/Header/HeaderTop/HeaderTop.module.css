@@ -1,0 +1,48 @@
+.top {
+  background-color: #f3f5f7;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+}
+
+.link {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.35;
+  color: rgba(0, 7, 45, 0.8);
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #002d79;
+}
+
+.button {
+  padding: 6px 0 8px;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.35;
+  color: #213f74;
+  transition: color 0.2s;
+}
+
+.button:hover {
+  color: #0b2f70;
+}
+
+.userIcon {
+  width: 22px;
+  height: 22px;
+}

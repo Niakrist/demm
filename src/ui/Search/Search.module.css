@@ -1,0 +1,38 @@
+.from {
+  width: 100%;
+  margin-right: 14px;
+}
+
+.label {
+  padding: 15px 20px;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  background-color: #f3f5f7;
+  border: 1px solid #e5e9ec;
+  border-radius: 46px;
+}
+
+.input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #00072d;
+  width: 100%;
+  background-color: #f3f5f7;
+
+  border-radius: 46px;
+}
+
+.input::placeholder {
+  color: rgba(0, 7, 45, 0.4);
+}
+
+.searchIcon {
+  width: 24px;
+  height: 24px;
+  color: #213f74;
+  cursor: pointer;
+}

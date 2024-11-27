@@ -1,0 +1,54 @@
+.nav {
+  background-color: #213f74;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+}
+
+.stock {
+  padding: 15px 40px;
+
+  display: flex;
+  align-items: center;
+  column-gap: 7px;
+
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.35;
+  color: #fff;
+
+  background-color: #c6bcb2;
+  transition: background-color 0.2s;
+}
+
+.stock:hover {
+  background-color: #b0a69b;
+}
+
+.stockIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.link {
+  padding: 15px 0px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.35;
+  color: #fff;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #ddd3ca;
+}
