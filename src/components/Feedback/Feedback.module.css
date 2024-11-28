@@ -1,0 +1,56 @@
+.feedback {
+  height: 469px;
+  background-image: url("./images/feedback.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.feedback::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    27deg,
+    rgba(44, 53, 70, 0.7) 0%,
+    rgba(44, 53, 70, 0.4) 100%
+  );
+}
+
+.content {
+  position: relative;
+  max-width: 567px;
+}
+
+.logoWrapper {
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 15px 10px 10px;
+  border-radius: 0 0 10px 10px;
+  background-color: #c6bcb2;
+  font-size: 0;
+}
+
+.logoIcon {
+  width: 45px;
+  height: 35px;
+  color: #fff;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.text {
+  margin-bottom: 25px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #fff;
+}

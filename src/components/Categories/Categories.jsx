@@ -39,7 +39,6 @@ const Categories = () => {
                 </div>
               </Link>
             </div>
-            <div className={styles.row}></div>
           </div>
           <Link to="" className={styles.cat3}>
             <h3 className={styles.title}>Аксессуары</h3>

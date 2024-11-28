@@ -11,7 +11,7 @@ const HeaderMain = () => {
     <div className={styles.main}>
       <Container className={styles.wrapper}>
         <Link className={styles.link} to="/">
-          <img src={logoSrc} alt="Логотип Demm" />
+          <img className={styles.logoImg} src={logoSrc} alt="Логотип Demm" />
         </Link>
         <Search />
         <div className={styles.communication}>
@@ -24,7 +24,7 @@ const HeaderMain = () => {
               Звоните с 8:10 до 18:10
             </p>
           </div>
-          <Button>Заказать звонок</Button>
+          <Button className={styles.btn}>Заказать звонок</Button>
         </div>
       </Container>
     </div>

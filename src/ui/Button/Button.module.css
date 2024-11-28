@@ -1,12 +1,11 @@
 .button {
-  padding: 14px 27px;
-
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.45;
   color: #fff;
   white-space: nowrap;
-
   background-color: #213f74;
   border-radius: 50px;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #002d79;
 }

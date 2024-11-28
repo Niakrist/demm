@@ -74,16 +74,6 @@
   background-image: url("./images/cat5.jpg");
 }
 
-/* .content {
-  position: absolute;
-  bottom: 40px;
-  left: 30px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-} */
-
 .title {
   position: absolute;
   left: 40px;
@@ -93,6 +83,7 @@
   line-height: 1.35;
   letter-spacing: -0.02em;
   color: #fff;
+  transition: color 0.2s;
 }
 
 .shevron {
@@ -124,4 +115,12 @@
 .cat5:hover .shevron {
   background-color: #c6bcb2;
   color: #fff;
+}
+
+.cat1:hover .title,
+.cat2:hover .title,
+.cat3:hover .title,
+.cat4:hover .title,
+.cat5:hover .title {
+  color: #c6bcb2;
 }

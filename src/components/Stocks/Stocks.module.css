@@ -1,0 +1,46 @@
+.stocks {
+  background-color: #fff;
+  max-width: 1495px;
+  padding: 0 15px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.wrapper {
+  padding: 60px 15px;
+}
+
+.header {
+  margin-bottom: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #122952;
+}
+
+.btn {
+  padding: 20px 30px;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.iconArrow {
+  width: 5px;
+  height: 8px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(354px, 416px));
+  column-gap: 24px;
+}

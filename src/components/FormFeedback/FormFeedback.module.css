@@ -1,0 +1,81 @@
+.inputsGroup {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.input {
+  width: 220px;
+  padding-bottom: 15px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #fff;
+
+  background-color: transparent;
+  outline: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  transition: border-bottom 0.2s;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.input:focus,
+.input:active {
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+
+.checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  display: none;
+}
+
+.checkboxCastom {
+  margin-bottom: 20px;
+
+  font-weight: 400;
+  font-size: 12px;
+
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7);
+
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.checkboxIcon {
+  width: 14px;
+  height: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.checkboxIcon path {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.checkboxIconActive path {
+  opacity: 1;
+}
+
+.btn {
+  padding: 20px 30px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #fff;
+  background-color: #c6bcb2;
+}
+
+.btn:hover {
+  background-color: #b0a69b;
+}

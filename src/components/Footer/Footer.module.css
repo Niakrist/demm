@@ -1,0 +1,228 @@
+.footer {
+  background-color: #fff;
+}
+
+.up {
+  padding: 80px 15px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 82px;
+}
+
+.logo {
+  flex-basis: 248px;
+  flex-shrink: 1;
+}
+
+.logoImg {
+  margin-bottom: 57px;
+  width: 160px;
+  height: 97px;
+  object-fit: cover;
+}
+
+.linkWhatsapp {
+  max-width: 217px;
+  padding: 20px;
+
+  white-space: nowrap;
+
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #213f74;
+
+  background-color: #f3f5f7;
+  border: 1px solid #e5e9ec;
+  border-radius: 50px;
+
+  transition: border 0.2s, background-color 0.2s;
+}
+
+.linkWhatsapp:hover {
+  border: 1px solid #e5e9ec;
+  background-color: #e7edf5;
+}
+
+.whatsapp {
+  width: 20px;
+  height: 20px;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: rgba(77, 82, 108, 0.5);
+}
+
+.itemNav {
+  margin-bottom: 15px;
+}
+
+.itemNav:last-child {
+  margin-bottom: 0px;
+}
+
+.linkNav {
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.35;
+  color: rgba(0, 7, 45, 0.8);
+  transition: color 0.2s;
+}
+
+.linkNav:hover {
+  color: #002d79;
+}
+
+.feedback {
+  flex-basis: 526px;
+  flex-shrink: 1;
+  justify-items: self-end;
+}
+
+.feedbackWrapper {
+  max-width: 416px;
+}
+
+.feedbackText {
+  max-width: 330px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #122952;
+}
+
+.form {
+  margin-bottom: 20px;
+  width: 415px;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #e5e9ec;
+  border-radius: 46px;
+  transition: border 0.2s;
+}
+
+.form:hover {
+  border: 1px solid #c8d2dc;
+}
+.formActive {
+  border: 1px solid #c8d2dc;
+}
+
+.label {
+  padding: 20px;
+  width: 100%;
+}
+
+.input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #00072d;
+}
+
+.input::placeholder {
+  color: rgba(0, 7, 45, 0.4);
+}
+
+.button {
+  padding: 20px 30px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.iconArrow {
+  width: 5px;
+  height: 8px;
+}
+
+.phone {
+  font-weight: 600;
+  font-size: 29px;
+  line-height: 1.35;
+  letter-spacing: -0.04em;
+  color: #213f74;
+  transition: color 0.2s;
+}
+
+.phone:hover {
+  color: #003690;
+}
+
+.address {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.35;
+  color: rgba(33, 63, 116, 0.8);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addressIcon {
+  width: 10px;
+  height: 12px;
+}
+
+.copyrights {
+  padding: 10px 0;
+}
+
+.wrapperCopy {
+  display: flex;
+  column-gap: 82px;
+}
+
+.copyText {
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.35;
+  color: #7f8295;
+  width: 248px;
+  flex-shrink: 1;
+}
+
+.copyLink {
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.35;
+  color: rgba(0, 7, 45, 0.8);
+  transition: color 0.2s;
+}
+
+.copyLink + .copyLink {
+}
+
+.copyLink:hover {
+  color: #002d79;
+}
+
+.empty {
+  flex-basis: 400px;
+  flex-shrink: 1;
+}

@@ -1,0 +1,79 @@
+.img {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  width: 416px;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.date {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #7f8295;
+}
+.titleCard {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #122952;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.text {
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #4d526c;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.detail {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.35;
+  color: #213f74;
+
+  display: inline-flex;
+  align-items: center;
+  column-gap: 8px;
+
+  transition: color 0.2s;
+
+  position: relative;
+}
+
+.detail::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 90px;
+  height: 1px;
+  background-color: #213f74;
+  transition: background-color 0.2s;
+}
+
+.detail:hover {
+  color: #003690;
+}
+
+.detail:hover::before {
+  background-color: #003690;
+}

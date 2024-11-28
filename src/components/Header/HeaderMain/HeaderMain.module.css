@@ -12,6 +12,11 @@
   font-size: 0;
 }
 
+.logoImg {
+  width: 138px;
+  height: 84px;
+  object-fit: cover;
+}
 .communication {
   display: flex;
   align-items: center;
@@ -61,4 +66,11 @@
 }
 .close {
   background-color: #ff0000;
+}
+
+.btn {
+  padding: 14px 27px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.45;
 }
