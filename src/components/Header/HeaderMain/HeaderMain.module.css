@@ -17,6 +17,7 @@
   height: 84px;
   object-fit: cover;
 }
+
 .communication {
   display: flex;
   align-items: center;
@@ -73,4 +74,35 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 1.45;
+}
+
+.linkCart {
+  width: 26px;
+  height: 26px;
+  color: #213f74;
+}
+
+@media (max-width: 1279px) {
+  .main {
+    padding: 15px 0 15px;
+  }
+
+  .wrapper {
+    column-gap: 10px;
+  }
+
+  .logoImg {
+    width: 115px;
+    height: 70px;
+  }
+
+  .communication {
+    column-gap: 10px;
+  }
+  .phoneWrapper {
+    display: none;
+  }
+  .btn {
+    display: none;
+  }
 }

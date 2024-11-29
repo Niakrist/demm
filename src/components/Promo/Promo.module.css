@@ -105,3 +105,19 @@
   display: flex;
   column-gap: 8px;
 }
+
+@media (max-width: 1279px) {
+  .promo {
+    height: 541px;
+  }
+
+  .content {
+    max-width: 530px;
+  }
+
+  .title {
+    margin-bottom: 20px;
+    font-size: 46px;
+    letter-spacing: -0.04em;
+  }
+}

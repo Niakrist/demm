@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../ui/Button/Button";
 import Container from "../Container/Container";
 import Icon from "../Icon/Icon";
@@ -29,7 +29,7 @@ const stocks = [
   },
   {
     id: 4,
-    img: "/images/stock4.jpg",
+    img: "/images/stock1.jpg",
     title: "Скидка 15% на все смесители",
     term: "11.11.2023",
     text: "Предлагаем смесители для кухни, ванны, душа по низким ценам! Акция действует только на товары в наличии.",
@@ -37,7 +37,18 @@ const stocks = [
 ];
 
 const Stocks = () => {
-  const stockList = [...stocks].slice(0, 3);
+  const [stockList, setStockList] = useState(
+    [...stocks].slice(0, window.innerWidth > 1279 ? 3 : 4)
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setStockList([...stocks].slice(0, window.innerWidth > 1279 ? 3 : 4));
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [stocks]);
 
   return (
     <section className={styles.stocks}>

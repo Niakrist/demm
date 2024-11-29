@@ -1,0 +1,43 @@
+.link {
+  border: 1px solid #e5e9ec;
+  border-radius: 37px;
+  width: 50px;
+  height: 50px;
+  background-color: #f3f5f7;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  transition: background-color 0.2s;
+}
+
+.link:hover {
+  background-color: #e7edf5;
+}
+
+.inCart {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  top: -2px;
+  right: -2px;
+  width: 17px;
+  height: 17px;
+  border-radius: 100%;
+  background-color: #c6bcb2;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: #213f74;
+}

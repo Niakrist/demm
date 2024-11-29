@@ -1,17 +1,17 @@
 .stocks {
   background-color: #fff;
   max-width: 1495px;
-  padding: 0 15px;
+  padding: 0 20px;
   margin: 0 auto;
   border-radius: 10px;
 }
 
 .wrapper {
-  padding: 60px 15px;
+  padding: 60px 0px;
 }
 
 .header {
-  margin-bottom: 34px;
+  margin-bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,4 +43,26 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(354px, 416px));
   column-gap: 24px;
+}
+
+@media (max-width: 1279px) {
+  .stocks {
+    width: 100%;
+    border-radius: 0px;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+  .list {
+    justify-self: center;
+    grid-template-columns: repeat(2, minmax(354px, 416px));
+    grid-auto-flow: unset;
+    column-gap: 20px;
+    row-gap: 40px;
+  }
 }

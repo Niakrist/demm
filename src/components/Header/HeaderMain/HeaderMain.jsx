@@ -5,6 +5,9 @@ import logoSrc from "../../../assets/images/logo.png";
 import styles from "./HeaderMain.module.css";
 import Search from "../../../ui/Search/Search";
 import Button from "../../../ui/Button/Button";
+import BurgerMenu from "../../../ui/BurgerMenu/BurgerMenu";
+
+import LinkIcon from "../../../ui/LinkIcon/LinkIcon";
 
 const HeaderMain = () => {
   return (
@@ -25,6 +28,9 @@ const HeaderMain = () => {
             </p>
           </div>
           <Button className={styles.btn}>Заказать звонок</Button>
+          <LinkIcon to="/user" name="userIcon" />
+          <LinkIcon to="/cart" name="cartIcon" inCart={2} />
+          <BurgerMenu />
         </div>
       </Container>
     </div>
