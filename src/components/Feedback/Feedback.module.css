@@ -54,3 +54,16 @@
   line-height: 1.55;
   color: #fff;
 }
+
+@media (max-width: 1279px) {
+  .feedback {
+    height: 444px;
+  }
+  .title {
+    margin-bottom: 20px;
+    font-size: 36px;
+  }
+  .text {
+    margin-bottom: 20px;
+  }
+}

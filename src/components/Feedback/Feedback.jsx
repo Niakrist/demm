@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "../Container/Container";
 import FormFeedback from "../FormFeedback/FormFeedback";
 import Icon from "../Icon/Icon";

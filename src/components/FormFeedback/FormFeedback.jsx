@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "../../ui/Button/Button";
 import { clsx } from "../../utils/clsx";
 import Icon from "../Icon/Icon";
@@ -32,7 +32,8 @@ const FormFeedback = () => {
       <label
         onClick={toggleCheck}
         className={styles.checkboxCastom}
-        htmlFor="checkbox">
+        htmlFor="checkbox"
+      >
         <Icon
           name="checkboxIcon"
           className={clsx(

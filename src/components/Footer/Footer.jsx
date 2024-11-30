@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Container from "../Container/Container";
 import styles from "./Footer.module.css";
 
@@ -26,14 +26,16 @@ const Footer = () => {
           <div className={styles.wrapper}>
             <div className={styles.logo}>
               <img className={styles.logoImg} src={logoSrc} alt="Logo" />
-              <a
-                className={styles.linkWhatsapp}
-                href="https://wa.me/+79999999999">
-                <Icon name="whatsapp" className={styles.whatsapp} />{" "}
-                <span>Написать в WhatsApp</span>
-              </a>
             </div>
-            <div className={styles.nav}>
+            <a
+              className={styles.linkWhatsapp}
+              href="https://wa.me/+79999999999"
+              target="_blank"
+            >
+              <Icon name="whatsapp" className={styles.whatsapp} />{" "}
+              <span>Написать в WhatsApp</span>
+            </a>
+            <div className={styles.navFirst}>
               <h3 className={styles.title}>Каталог</h3>
               <ul>
                 <li className={styles.itemNav}>
@@ -63,7 +65,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className={styles.nav}>
+            <div className={styles.navSecond}>
               <h3 className={styles.title}>Для клиента</h3>
               <ul>
                 <li className={styles.itemNav}>
@@ -103,7 +105,8 @@ const Footer = () => {
                   className={clsx(
                     styles.form,
                     isActiveInput && styles.formActive
-                  )}>
+                  )}
+                >
                   <label className={styles.label}>
                     <input
                       placeholder="Электронная почта"
@@ -118,16 +121,17 @@ const Footer = () => {
                     <IconArrow name="iconArrow" className={styles.iconArrow} />
                   </Button>
                 </form>
-
-                <a className={styles.phone} href="tel:+79999999999">
-                  +7 999 999-99-99
-                </a>
-                <address className={styles.address}>
-                  <Icon name="address" className={styles.addressIcon} /> г.
-                  Новосибирск, улица, дом, офис
-                </address>
               </div>
             </div>
+            <address className={styles.address}>
+              <a className={styles.phone} href="tel:+79999999999">
+                +7 999 999-99-99
+              </a>
+              <div className={styles.addressIconWrapper}>
+                <Icon name="address" className={styles.addressIcon} /> г.
+                Новосибирск, улица, дом, офис
+              </div>
+            </address>
           </div>
         </Container>
       </div>
@@ -138,10 +142,9 @@ const Footer = () => {
             <Link className={styles.copyLink} to="">
               Договор оферты
             </Link>
-            <Link className={styles.copyLink} to="">
+            <Link className={styles.copyLinkSecond} to="">
               Пользовательское соглашение
             </Link>
-            <div className={styles.empty} />
           </div>
         </Container>
       </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../ui/Button/Button";
 import Container from "../Container/Container";
 import Icon from "../Icon/Icon";
