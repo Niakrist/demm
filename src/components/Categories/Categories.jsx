@@ -1,6 +1,4 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { clsx } from "../../utils/clsx";
 import Container from "../Container/Container";
 import Icon from "../Icon/Icon";
 import styles from "./Categories.module.css";

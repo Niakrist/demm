@@ -1,12 +1,13 @@
 .wrapper {
-  padding: 80px 0;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .categorise {
   display: grid;
-  grid-template-columns: 67.7% 32.2%;
+  grid-template-columns: minmax(0, 856px) minmax(0, 416px);
   grid-template-rows: 310px;
-  gap: 24px;
+  grid-gap: 24px;
 }
 
 .leftTop {
