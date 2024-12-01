@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { createDatetimeForTag } from "../../../utils/createDatetimeForTag";
 import Icon from "../../Icon/Icon";

@@ -40,9 +40,13 @@
 }
 
 .list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(354px, 416px));
-  column-gap: 24px;
+  display: flex;
+  gap: 24px;
+}
+
+.item {
+  width: 416px;
+  flex: 0 1 auto;
 }
 
 @media (max-width: 1279px) {
@@ -61,11 +65,40 @@
   .title {
     font-size: 36px;
   }
+
   .list {
-    justify-self: center;
-    grid-template-columns: repeat(2, minmax(354px, 416px));
-    grid-auto-flow: unset;
-    column-gap: 20px;
-    row-gap: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .item {
+    width: 40%;
+    flex: 1 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .btn {
+    padding: 17px 25px;
+  }
+
+  .list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0;
+    margin: 0;
+    column-gap: 12px;
+  }
+
+  .item {
+    width: 237px;
+    flex: 0 0 auto;
+    padding-bottom: 2px;
   }
 }

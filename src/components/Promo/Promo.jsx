@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Container from "../Container/Container";
 import Icon from "../Icon/Icon";
@@ -41,20 +41,21 @@ const Promo = () => {
   return (
     <section
       className={styles.promo}
-      style={{ backgroundImage: `url(${slide.img})` }}>
+      style={{ backgroundImage: `url(${slide.img})` }}
+    >
       <Container className={styles.wrapper}>
         <div className={styles.contentWrapper}>
           <div className={styles.content}>
             <Link className={styles.link} to="/">
-              Перейти в каталог{" "}
+              Перейти в каталог
               <Icon name="iconArrow" className={styles.iconArrow} />
             </Link>
             <h2 className={styles.title}>
               Изысканные смесители для вашего интерьера
             </h2>
             <p className={styles.text}>
-              Гарантируем высочайшую безопасность и надёжность в соответствии
-              с международными стандартами качества.
+              Гарантируем высочайшую безопасность и надёжность в соответствии с
+              международными стандартами качества.
             </p>
           </div>
           <ul className={styles.list}>

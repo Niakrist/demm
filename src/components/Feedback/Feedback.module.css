@@ -59,11 +59,49 @@
   .feedback {
     height: 444px;
   }
+  .feedback::before {
+    background: linear-gradient(
+      36deg,
+      rgba(44, 53, 70, 0.8) 0%,
+      rgba(44, 53, 70, 0.4) 100%
+    );
+  }
+
   .title {
     margin-bottom: 20px;
     font-size: 36px;
   }
   .text {
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .feedback {
+    height: 470px;
+    background-position: right;
+  }
+  .feedback::before {
+    background: linear-gradient(
+      36deg,
+      rgba(44, 53, 70, 0.9) 0%,
+      rgba(44, 53, 70, 0.4) 100%
+    );
+  }
+
+  .logoWrapper {
+    padding: 11px 5px 5px;
+  }
+  .logoIcon {
+    width: 30px;
+    height: 24px;
+  }
+  .title {
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .text {
+    font-size: 14px;
   }
 }

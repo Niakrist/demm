@@ -53,3 +53,37 @@
   top: 24px;
   transform: rotate(45deg);
 }
+
+@media (max-width: 767px) {
+  .button {
+    width: 40px;
+    height: 40px;
+  }
+  .lineTop,
+  .lineMedium,
+  .lineBottom {
+    width: 16px;
+    height: 1px;
+    left: 12px;
+  }
+
+  .lineTop {
+    top: 24px;
+  }
+
+  .lineMedium {
+    top: 19px;
+  }
+
+  .lineBottom {
+    bottom: 25px;
+  }
+
+  .lineTop.open {
+    top: 20px;
+  }
+
+  .lineBottom.open {
+    top: 20px;
+  }
+}

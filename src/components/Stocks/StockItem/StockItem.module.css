@@ -2,8 +2,9 @@
   display: inline-block;
   margin-bottom: 15px;
   border-radius: 10px;
-  max-width: 100%;
-  height: 240px;
+  width: 100%;
+  min-height: 170px;
+  height: auto;
   object-fit: cover;
   display: block;
 }
@@ -15,6 +16,7 @@
   line-height: 1.55;
   color: #7f8295;
 }
+
 .titleCard {
   display: inline-block;
   margin-bottom: 15px;
@@ -77,4 +79,26 @@
 
 .detail:hover::before {
   background-color: #003690;
+}
+
+@media (max-width: 767px) {
+  .img {
+    margin-bottom: 10px;
+  }
+
+  .date {
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  .titleCard {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .text {
+    margin-bottom: 12px;
+  }
+  .detail {
+    font-size: 14px;
+  }
 }

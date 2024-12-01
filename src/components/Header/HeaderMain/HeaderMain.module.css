@@ -106,3 +106,17 @@
     display: none;
   }
 }
+
+@media (max-width: 767px) {
+  .main {
+    padding: 8px 0 9px;
+  }
+  .logoImg {
+    width: 71px;
+    height: 43px;
+    margin-right: auto;
+  }
+  .link {
+    margin-right: auto;
+  }
+}

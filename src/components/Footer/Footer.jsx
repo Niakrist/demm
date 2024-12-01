@@ -37,7 +37,7 @@ const Footer = () => {
             </a>
             <div className={styles.navFirst}>
               <h3 className={styles.title}>Каталог</h3>
-              <ul>
+              <ul className={styles.list}>
                 <li className={styles.itemNav}>
                   <Link className={styles.linkNav} to="/">
                     Смесители
@@ -117,7 +117,7 @@ const Footer = () => {
                     />
                   </label>
                   <Button className={styles.button}>
-                    Подписаться{" "}
+                    {/* Подписаться{" "} */}
                     <IconArrow name="iconArrow" className={styles.iconArrow} />
                   </Button>
                 </form>
