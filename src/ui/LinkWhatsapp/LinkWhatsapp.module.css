@@ -1,0 +1,38 @@
+.whatsappLink {
+  max-width: 217px;
+  height: 60px;
+  padding: 20px;
+
+  white-space: nowrap;
+
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #213f74;
+
+  background-color: #f3f5f7;
+  border: 1px solid #e5e9ec;
+  border-radius: 50px;
+
+  transition: border 0.2s, background-color 0.2s;
+}
+
+.whatsappLink:hover {
+  border: 1px solid #e5e9ec;
+  background-color: #e7edf5;
+}
+
+.whatsapp {
+  min-width: 20px;
+  min-height: 20px;
+}
+
+@media (max-width: 1279px) {
+  .whatsappLink {
+    height: 54px;
+  }
+}

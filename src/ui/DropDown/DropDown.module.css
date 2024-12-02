@@ -1,0 +1,56 @@
+.dropDown {
+  width: 100%;
+  text-align: left;
+}
+
+.dropDown {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #122952;
+}
+
+.dropDown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropDownList {
+  padding-top: 15px;
+}
+
+.dropDownItem {
+  margin-bottom: 10px;
+}
+
+.dropDownItem:last-child {
+  margin-bottom: 0px;
+}
+
+.dropDownLink {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.35;
+  color: rgba(0, 7, 45, 0.8);
+}
+
+.dropDownIcon {
+  width: 10px;
+  height: 7px;
+}
+
+@media (max-width: 767px) {
+  .dropDown {
+    font-size: 16px;
+  }
+
+  .dropDownList {
+    padding: 10px 0 10px;
+  }
+
+  .dropDownLink {
+    font-size: 14px;
+  }
+}

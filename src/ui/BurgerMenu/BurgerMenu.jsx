@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import { clsx } from "../../utils/clsx";
 import styles from "./BurgerMenu.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleMenu } from "../../store/menuSlice/menuToggleSlice";
 
 const BurgerMenu = () => {
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const { isMenu } = useSelector((state) => state.menu);
+  const dispatch = useDispatch();
+
+  console.log("isMenu: ", isMenu);
 
   const handleClick = () => {
-    setIsOpenMenu(!isOpenMenu);
+    dispatch(toggleMenu(!isMenu));
   };
 
   return (
     <button className={styles.button} onClick={handleClick}>
-      <span className={clsx(styles.lineTop, isOpenMenu && styles.open)} />
-      <span className={clsx(styles.lineMedium, isOpenMenu && styles.open)} />
-      <span className={clsx(styles.lineBottom, isOpenMenu && styles.open)} />
+      <span className={clsx(styles.lineTop, isMenu && styles.open)} />
+      <span className={clsx(styles.lineMedium, isMenu && styles.open)} />
+      <span className={clsx(styles.lineBottom, isMenu && styles.open)} />
     </button>
   );
 };

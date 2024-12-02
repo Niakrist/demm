@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Button from "../../ui/Button/Button";
 import IconArrow from "../Icon/icons/IconArrow";
 import { clsx } from "../../utils/clsx";
+import LinkWhatsapp from "../../ui/LinkWhatsapp/LinkWhatsapp";
 
 const Footer = () => {
   const [isActiveInput, setIsActiveInput] = useState(false);
@@ -27,14 +28,14 @@ const Footer = () => {
             <div className={styles.logo}>
               <img className={styles.logoImg} src={logoSrc} alt="Logo" />
             </div>
-            <a
+            <LinkWhatsapp className={styles.linkWhatsapp} />
+            {/* <a
               className={styles.linkWhatsapp}
               href="https://wa.me/+79999999999"
-              target="_blank"
-            >
+              target="_blank">
               <Icon name="whatsapp" className={styles.whatsapp} />{" "}
               <span>Написать в WhatsApp</span>
-            </a>
+            </a> */}
             <div className={styles.navFirst}>
               <h3 className={styles.title}>Каталог</h3>
               <ul className={styles.list}>
@@ -105,8 +106,7 @@ const Footer = () => {
                   className={clsx(
                     styles.form,
                     isActiveInput && styles.formActive
-                  )}
-                >
+                  )}>
                   <label className={styles.label}>
                     <input
                       placeholder="Электронная почта"
@@ -117,7 +117,7 @@ const Footer = () => {
                     />
                   </label>
                   <Button className={styles.button}>
-                    {/* Подписаться{" "} */}
+                    <span>Подписаться </span>
                     <IconArrow name="iconArrow" className={styles.iconArrow} />
                   </Button>
                 </form>

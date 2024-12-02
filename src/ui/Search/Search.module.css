@@ -44,6 +44,10 @@
   cursor: pointer;
 }
 
+.btnMobile {
+  display: none;
+}
+
 @media (max-width: 1279px) {
   .from {
     margin: 0 0 0 10px;
@@ -51,23 +55,27 @@
 }
 
 @media (max-width: 767px) {
+  .from {
+    display: none;
+  }
+
+  .btnMobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    border: 1px solid #e5e9ec;
+    border-radius: 37px;
+    width: 40px;
+    height: 40px;
+    background-color: #f3f5f7;
+
+    transition: background-color 0.2s;
+  }
+
   .searchIcon {
     width: 19px;
     height: 19px;
   }
-}
-
-.btnMobile {
-  border: 1px solid #e5e9ec;
-  border-radius: 37px;
-  width: 40px;
-  height: 40px;
-  background-color: #f3f5f7;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-
-  transition: background-color 0.2s;
 }

@@ -24,49 +24,10 @@
   column-gap: 20px;
 }
 
-.phoneWrapper {
+.phone {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-}
-
-.tel {
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 1.35;
-  letter-spacing: -0.04em;
-  white-space: nowrap;
-  color: #213f74;
-  transform: color 0.2s;
-}
-
-.tel:hover {
-  color: #003690;
-}
-
-.time {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.35;
-  color: rgba(0, 7, 45, 0.8);
-
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-}
-
-.open,
-.close {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-.open {
-  background-color: #00de59;
-}
-.close {
-  background-color: #ff0000;
 }
 
 .btn {
@@ -99,9 +60,11 @@
   .communication {
     column-gap: 10px;
   }
-  .phoneWrapper {
+
+  .phone {
     display: none;
   }
+
   .btn {
     display: none;
   }

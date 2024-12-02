@@ -15,19 +15,14 @@ const Search = () => {
     setIsActiveInput(false);
   };
 
-  if (isMobile) {
-    return (
+  return (
+    <>
       <button className={styles.btnMobile}>
         <Icon name="searchIcon" className={styles.searchIcon} />
       </button>
-    );
-  }
-  if (!isMobile) {
-    return (
       <form className={styles.from}>
         <label
-          className={clsx(styles.label, isActiveInput && styles.labelActive)}
-        >
+          className={clsx(styles.label, isActiveInput && styles.labelActive)}>
           <input
             className={styles.input}
             type="text"
@@ -39,8 +34,8 @@ const Search = () => {
           <Icon name="searchIcon" className={styles.searchIcon} />
         </label>
       </form>
-    );
-  }
+    </>
+  );
 };
 
 export default Search;

@@ -1,4 +1,10 @@
 .link {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.iconWrapper {
   border: 1px solid #e5e9ec;
   border-radius: 37px;
   width: 50px;
@@ -13,7 +19,7 @@
   transition: background-color 0.2s;
 }
 
-.link:hover {
+.iconWrapper:hover {
   background-color: #e7edf5;
 }
 
@@ -35,20 +41,41 @@
   line-height: 1.35;
   color: #fff;
 }
-
 .icon {
   width: 24px;
   height: 24px;
   color: #213f74;
 }
 
+.text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.35;
+  color: rgba(0, 7, 45, 0.8);
+}
+
+@media (max-width: 1279px) {
+}
+
 @media (max-width: 767px) {
   .link {
+    column-gap: 10px;
+  }
+
+  .iconWrapper {
     width: 40px;
     height: 40px;
   }
   .icon {
     width: 19px;
     height: 19px;
+  }
+  .inCart {
+    font-size: 8px;
+    width: 13px;
+    height: 13px;
+  }
+  .text {
+    font-size: 14px;
   }
 }

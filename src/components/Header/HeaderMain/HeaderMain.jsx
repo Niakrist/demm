@@ -5,8 +5,8 @@ import styles from "./HeaderMain.module.css";
 import Search from "../../../ui/Search/Search";
 import Button from "../../../ui/Button/Button";
 import BurgerMenu from "../../../ui/BurgerMenu/BurgerMenu";
-
 import LinkIcon from "../../../ui/LinkIcon/LinkIcon";
+import PhoneGroup from "../../../ui/PhoneGroup/PhoneGroup";
 
 const HeaderMain = () => {
   return (
@@ -17,15 +17,7 @@ const HeaderMain = () => {
         </Link>
         <Search />
         <div className={styles.communication}>
-          <div className={styles.phoneWrapper}>
-            <a className={styles.tel} href="tel:799999999">
-              +7 999 999-99-99
-            </a>
-            <p className={styles.time}>
-              <span className={styles.open} />
-              Звоните с 8:10 до 18:10
-            </p>
-          </div>
+          <PhoneGroup className={styles.phone} />
           <Button className={styles.btn}>Заказать звонок</Button>
           <LinkIcon to="/user" name="userIcon" />
           <LinkIcon to="/cart" name="cartIcon" inCart={2} />

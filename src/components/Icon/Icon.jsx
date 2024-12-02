@@ -2,6 +2,7 @@ import React from "react";
 import Address from "./icons/Address";
 import CartIcon from "./icons/CartIcon";
 import CheckboxIcon from "./icons/CheckboxIcon";
+import DropDownIcon from "./icons/DropDownIcon";
 import IconArrow from "./icons/IconArrow";
 import LogoIcon from "./icons/LogoIcon";
 import SearchIcon from "./icons/SearchIcon";
@@ -20,6 +21,7 @@ const Icon = ({ name, className }) => {
     checkboxIcon: <CheckboxIcon className={className} />,
     whatsapp: <Whatsapp className={className} />,
     address: <Address className={className} />,
+    dropDownIcon: <DropDownIcon className={className} />,
   };
 
   return icons[name];
