@@ -22,25 +22,28 @@ const DropDown = () => {
           )}
         />
       </button>
-      {isOpenDropDown && (
-        <ul className={styles.dropDownList}>
-          <li className={styles.dropDownItem}>
-            <Link className={styles.dropDownLink}>Смесители</Link>
-          </li>
-          <li className={styles.dropDownItem}>
-            <Link className={styles.dropDownLink}>Душевые системы</Link>
-          </li>
-          <li className={styles.dropDownItem}>
-            <Link className={styles.dropDownLink}>Душевые стойки</Link>
-          </li>
-          <li className={styles.dropDownItem}>
-            <Link className={styles.dropDownLink}>Изливы</Link>
-          </li>
-          <li className={styles.dropDownItem}>
-            <Link className={styles.dropDownLink}>Аксессуары</Link>
-          </li>
-        </ul>
-      )}
+
+      <ul className={styles.dropDownList}>
+        {isOpenDropDown && (
+          <>
+            <li className={styles.dropDownItem}>
+              <Link className={styles.dropDownLink}>Смесители</Link>
+            </li>
+            <li className={styles.dropDownItem}>
+              <Link className={styles.dropDownLink}>Душевые системы</Link>
+            </li>
+            <li className={styles.dropDownItem}>
+              <Link className={styles.dropDownLink}>Душевые стойки</Link>
+            </li>
+            <li className={styles.dropDownItem}>
+              <Link className={styles.dropDownLink}>Изливы</Link>
+            </li>
+            <li className={styles.dropDownItem}>
+              <Link className={styles.dropDownLink}>Аксессуары</Link>
+            </li>
+          </>
+        )}
+      </ul>
     </>
   );
 };
