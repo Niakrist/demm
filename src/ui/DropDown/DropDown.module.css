@@ -37,8 +37,14 @@
 }
 
 .dropDownIcon {
+  transform: rotate(90deg);
   width: 10px;
   height: 7px;
+  transition: transform 0.2s;
+}
+
+.dropDownIconActive {
+  transform: rotate(180deg);
 }
 
 @media (max-width: 767px) {
