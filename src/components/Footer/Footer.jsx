@@ -9,6 +9,8 @@ import Button from "../../ui/Button/Button";
 import IconArrow from "../Icon/icons/IconArrow";
 import { clsx } from "../../utils/clsx";
 import LinkWhatsapp from "../../ui/LinkWhatsapp/LinkWhatsapp";
+import MobileMenu from "../MobileMenu/MobileMenu";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
   const [isActiveInput, setIsActiveInput] = useState(false);
@@ -20,6 +22,7 @@ const Footer = () => {
     setIsActiveInput(false);
   };
 
+  const { isMenu } = useSelector((state) => state.menu);
   return (
     <footer>
       <div className={styles.footer}>
@@ -148,6 +151,7 @@ const Footer = () => {
           </div>
         </Container>
       </div>
+      {isMenu && <MobileMenu />}
     </footer>
   );
 };

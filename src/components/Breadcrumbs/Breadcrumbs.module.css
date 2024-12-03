@@ -1,0 +1,27 @@
+.breadcrumbs {
+  padding-top: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  margin-right: 10px;
+  position: relative;
+}
+
+.item:not(:first-child)::before {
+  content: "/";
+  padding-right: 10px;
+  color: rgba(0, 7, 45, 0.5);
+}
+
+.item .link {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.35;
+  color: rgba(0, 7, 45, 0.5);
+}
+
+.item:last-child .link {
+  color: rgba(0, 7, 45, 0.8);
+}

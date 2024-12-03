@@ -8,8 +8,6 @@ const BurgerMenu = () => {
   const { isMenu } = useSelector((state) => state.menu);
   const dispatch = useDispatch();
 
-  console.log("isMenu: ", isMenu);
-
   const handleClick = () => {
     dispatch(toggleMenu(!isMenu));
   };

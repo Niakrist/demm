@@ -9,8 +9,13 @@ import Button from "../../ui/Button/Button";
 import LinkWhatsapp from "../../ui/LinkWhatsapp/LinkWhatsapp";
 import BurgerMenu from "../../ui/BurgerMenu/BurgerMenu";
 import DropDown from "../../ui/DropDown/DropDown";
+import { useCategories } from "../../hooks/useCategories";
 
 const MobileMenu = () => {
+  const items = useCategories();
+
+  if (!items) return;
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.mobileMenu}>
@@ -24,7 +29,7 @@ const MobileMenu = () => {
         <nav className={styles.nav}>
           <ul>
             <li className={styles.item}>
-              <DropDown />
+              <DropDown items={items} name="Каталог" type="link" />
             </li>
             <li className={styles.item}>
               <Link className={styles.link}>Акции</Link>

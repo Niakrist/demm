@@ -4,16 +4,17 @@ import Icon from "../../components/Icon/Icon";
 import { clsx } from "../../utils/clsx";
 import styles from "./DropDown.module.css";
 
-const DropDown = () => {
+const DropDown = ({ items, name, type }) => {
   const [isOpenDropDown, setIsOpenDropDown] = useState(false);
 
   const handleToggle = () => {
     setIsOpenDropDown(!isOpenDropDown);
   };
+
   return (
     <>
       <button onClick={handleToggle} className={styles.dropDown}>
-        Каталог{" "}
+        {name}{" "}
         <Icon
           name="dropDownIcon"
           className={clsx(
@@ -22,30 +23,31 @@ const DropDown = () => {
           )}
         />
       </button>
-
       <ul className={styles.dropDownList}>
         {isOpenDropDown && (
           <>
-            <li className={styles.dropDownItem}>
-              <Link className={styles.dropDownLink}>Смесители</Link>
-            </li>
-            <li className={styles.dropDownItem}>
-              <Link className={styles.dropDownLink}>Душевые системы</Link>
-            </li>
-            <li className={styles.dropDownItem}>
-              <Link className={styles.dropDownLink}>Душевые стойки</Link>
-            </li>
-            <li className={styles.dropDownItem}>
-              <Link className={styles.dropDownLink}>Изливы</Link>
-            </li>
-            <li className={styles.dropDownItem}>
-              <Link className={styles.dropDownLink}>Аксессуары</Link>
-            </li>
+            {type === "link"
+              ? items.map((item) => (
+                  <li key={item.id} className={styles.dropDownItem}>
+                    <Link to={`/${item.id}`} className={styles.dropDownLink}>
+                      {item.name}
+                    </Link>
+                  </li>
+                ))
+              : items.map((item) => (
+                  <li key={item.id} className={styles.dropDownItem}>
+                    <input type="checkbox" id={item.id} />{" "}
+                    <label htmlFor={item.id}>{item.name}</label>
+                  </li>
+                ))}
           </>
         )}
       </ul>
     </>
   );
+
+  if (type === "checkbox") {
+  }
 };
 
 export default DropDown;

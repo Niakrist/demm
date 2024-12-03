@@ -1,0 +1,15 @@
+.title {
+  padding-top: 25px;
+  margin-bottom: 40px;
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #122952;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  column-gap: 40px;
+}
