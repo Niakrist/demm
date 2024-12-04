@@ -53,6 +53,10 @@
   color: #ddd3ca;
 }
 
+.linkCart {
+  margin-right: 35px;
+}
+
 @media (max-width: 1279px) {
   .nav {
     display: none;

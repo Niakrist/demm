@@ -37,10 +37,14 @@
   line-height: 1.45;
 }
 
-.linkCart {
+/* .linkCart {
   width: 26px;
   height: 26px;
   color: #213f74;
+} */
+
+.linkIcon {
+  display: none;
 }
 
 @media (max-width: 1279px) {
@@ -67,6 +71,10 @@
 
   .btn {
     display: none;
+  }
+
+  .linkIcon {
+    display: flex;
   }
 }
 

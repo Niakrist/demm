@@ -11,7 +11,9 @@ const Breadcrumbs = () => {
           <Link className={styles.link}>Главная</Link>
         </li>
         <li className={styles.item}>
-          <Link className={styles.link}>Каталог</Link>
+          <Link to="/catalog" className={styles.link}>
+            Каталог
+          </Link>
         </li>
       </ul>
     </Container>

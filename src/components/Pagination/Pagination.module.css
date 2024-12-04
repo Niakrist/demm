@@ -1,0 +1,51 @@
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.item {
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.itemActive {
+  background: rgba(198, 188, 178, 0.2);
+}
+
+.item:hover {
+  background-color: #b0a69b;
+}
+
+.btn {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #4d526c;
+}
+
+.btnNext {
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  background-color: #c6bcb2;
+  transition: background-color 0.2s;
+  font-size: 0;
+}
+
+.btnNext:hover {
+  background-color: #b0a69b;
+}
+
+.iconArrow {
+  width: 7px;
+  height: 12px;
+  color: #fff;
+}

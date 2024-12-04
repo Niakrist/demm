@@ -1,0 +1,10 @@
+.presence {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #797d91;
+}

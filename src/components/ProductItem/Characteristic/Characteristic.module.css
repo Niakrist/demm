@@ -1,0 +1,28 @@
+.title {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #122952;
+}
+
+.row td {
+  padding: 10px 0;
+  border-bottom: 1px solid #cfd8de;
+}
+
+.id {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #4d526c;
+}
+
+.name {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  text-align: right;
+  color: #122952;
+}

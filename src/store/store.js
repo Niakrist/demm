@@ -3,6 +3,7 @@ import categoriesSlice from "./categoriesSlice/categoriesSlice";
 import filterSlice from "./filterSlice/filterSlice";
 
 import menuToggleSlice from "./menuSlice/menuToggleSlice";
+import productItemSlice from "./productItemSlice/productItemSlice";
 import productsSlice from "./productsSlice/productsSlice";
 
 export const store = configureStore({
@@ -11,5 +12,6 @@ export const store = configureStore({
     filter: filterSlice,
     categories: categoriesSlice,
     products: productsSlice,
+    productItem: productItemSlice,
   },
 });

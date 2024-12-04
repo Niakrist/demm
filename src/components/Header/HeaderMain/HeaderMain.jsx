@@ -19,8 +19,12 @@ const HeaderMain = () => {
         <div className={styles.communication}>
           <PhoneGroup className={styles.phone} />
           <Button className={styles.btn}>Заказать звонок</Button>
-          <LinkIcon to="/user" name="userIcon" />
-          <LinkIcon to="/cart" name="cartIcon" inCart={2} />
+          <div className={styles.linkIcon}>
+            <LinkIcon to="/user" name="userIcon" />
+          </div>
+          <div className={styles.linkIcon}>
+            <LinkIcon to="/cart" name="cartIcon" inCart={2} />
+          </div>
           <BurgerMenu />
         </div>
       </Container>

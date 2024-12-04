@@ -1,5 +1,17 @@
+.productList {
+  padding-bottom: 60px;
+}
+
 .list {
+  padding-bottom: 40px;
   display: grid;
   grid-template-columns: repeat(3, 306px);
   gap: 24px;
+}
+
+.item {
+  max-width: 306px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
 }

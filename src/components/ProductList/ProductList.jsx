@@ -1,5 +1,6 @@
 import React from "react";
-import ProductItem from "./ProductItem/ProductItem";
+import Pagination from "../Pagination/Pagination";
+import ProductCard from "./ProductCard/ProductCard";
 
 import styles from "./ProductList.module.css";
 
@@ -7,14 +8,16 @@ const ProductList = ({ products }) => {
   if (!products) return;
 
   return (
-    <section>
+    <section className={styles.productList}>
       <ul className={styles.list}>
         {products.map((product) => (
-          <li key={product.id}>
-            <ProductItem product={product} />
-          </li>
+          <ProductCard key={product.id} product={product} />
+          // <li className={styles.item} key={product.id}>
+
+          // </li>
         ))}
       </ul>
+      <Pagination />
     </section>
   );
 };

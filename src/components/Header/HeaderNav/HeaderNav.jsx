@@ -43,7 +43,9 @@ const HeaderNav = () => {
             </li>
           </ul>
         </nav>
-        <LinkCart />
+        <div className={styles.linkCart}>
+          <LinkCart />
+        </div>
       </Container>
     </div>
   );

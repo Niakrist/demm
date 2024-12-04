@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../store/categoriesSlice/categoriesSlice";
+import { transformObjectInArr } from "../utils/transformObjectInArr";
 
 export const useCategories = () => {
   const dispatch = useDispatch();
@@ -10,10 +11,7 @@ export const useCategories = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-  let category = [];
-  for (const eleme in categories) {
-    category.push({ id: eleme, name: categories[eleme] });
-  }
+  let category = transformObjectInArr(categories);
 
   return category;
 };
