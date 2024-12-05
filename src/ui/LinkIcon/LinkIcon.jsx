@@ -8,7 +8,11 @@ const LinkIcon = ({ to, name, inCart, children }) => {
     <Link className={styles.link} to={to}>
       <div className={styles.iconWrapper}>
         <Icon name={name} className={styles.icon} />
-        {inCart && <span className={styles.inCart}>{inCart}</span>}
+        {!!inCart?.length && (
+          <>
+            <span className={styles.inCart}>{inCart.length}</span>
+          </>
+        )}
       </div>
       {children && <span className={styles.text}>{children}</span>}
     </Link>

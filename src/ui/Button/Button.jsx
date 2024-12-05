@@ -2,9 +2,12 @@ import React from "react";
 import { clsx } from "../../utils/clsx";
 import styles from "./Button.module.css";
 
-const Button = ({ children, className, ...props }) => {
+const Button = ({ children, className, onClick, ...props }) => {
   return (
-    <button className={clsx(styles.button, className)} {...props}>
+    <button
+      onClick={onClick}
+      className={clsx(styles.button, className)}
+      {...props}>
       {children}
     </button>
   );

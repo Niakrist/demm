@@ -13,7 +13,6 @@ import CatalogNav from "./CatalogNav/CatalogNav";
 
 const Catalog = () => {
   const { products } = useSelector((state) => state.products);
-  console.log("products: ", products);
   return (
     <>
       <Header />

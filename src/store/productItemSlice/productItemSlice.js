@@ -6,8 +6,6 @@ export const fetchProductItem = createAsyncThunk(
     try {
       const response = await fetch(`http://localhost:3024/api/goods/${id}`);
       const data = await response.json();
-
-      console.log("data: ", data);
       return data;
     } catch (error) {}
   }

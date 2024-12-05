@@ -10,11 +10,13 @@ import LinkWhatsapp from "../../ui/LinkWhatsapp/LinkWhatsapp";
 import BurgerMenu from "../../ui/BurgerMenu/BurgerMenu";
 import DropDown from "../../ui/DropDown/DropDown";
 import { useCategories } from "../../hooks/useCategories";
+import { useSelector } from "react-redux";
 
 const MobileMenu = () => {
   const items = useCategories();
-
   if (!items) return;
+
+  const { inCart } = useSelector((state) => state.cart);
 
   return (
     <section className={styles.wrapper}>
@@ -50,7 +52,7 @@ const MobileMenu = () => {
         </nav>
         <ul className={styles.user}>
           <li>
-            <LinkIcon to="/cart" name="cartIcon" inCart={2}>
+            <LinkIcon to="/cart" name="cartIcon" inCart={inCart}>
               Корзина
             </LinkIcon>
           </li>

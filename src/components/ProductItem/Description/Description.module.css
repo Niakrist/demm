@@ -1,0 +1,68 @@
+.title {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  color: #122952;
+}
+
+.description {
+  display: grid;
+  grid-template-columns: 1fr 334px;
+  column-gap: 24px;
+}
+
+.descriptionWrapper {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+.collection {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #4d526c;
+}
+
+.text:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.collectionTitle {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #122952;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #4d526c;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.presenceYes {
+  width: 20px;
+  height: 20px;
+  color: #c6bcb2;
+}

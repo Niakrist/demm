@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../../../ui/Button/Button";
 import Presence from "../../Presence/Presence";
+import Price from "../../Price/Price";
 import styles from "./ProductCard.module.css";
 
 const ProductCard = ({ product }) => {
   if (!product) return;
+
+  const handleClick = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <li className={styles.card}>
@@ -20,9 +24,9 @@ const ProductCard = ({ product }) => {
           <h3 className={styles.title}>{product.title}</h3>
           <p className={styles.collection}>Коллекция: {product.categoryRus}</p>
         </div>
-        <p className={styles.price}>{product.price} руб./шт</p>
-        <Button className={styles.cart}>В корзину</Button>
-        <Button className={styles.buy}>Купить в 1 клик</Button>
+        <div onClick={handleClick} className={styles.price}>
+          <Price product={product} productCard />
+        </div>
       </Link>
     </li>
   );

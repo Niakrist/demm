@@ -7,8 +7,10 @@ import Container from "../Container/Container";
 import Presence from "../Presence/Presence";
 import SliderGood from "../SliderGood/SliderGood";
 import Characteristic from "./Characteristic/Characteristic";
-import PriceBlock from "../PriceBlock/PriceBlock";
 import styles from "./ProductItem.module.css";
+import Price from "../Price/Price";
+import Description from "./Description/Description";
+import Slider from "../Slider/Slider";
 
 const ProductItem = () => {
   const { id } = useParams();
@@ -24,6 +26,8 @@ const ProductItem = () => {
 
   if (!productItem) return;
 
+  console.log("productItem: ", productItem);
+
   return (
     <section className={styles.productItem}>
       <Container>
@@ -31,7 +35,6 @@ const ProductItem = () => {
           <div className={styles.sliderGood}>
             <SliderGood />
           </div>
-
           <h1 className={styles.title}>{productItem.title}</h1>
           <div className={styles.presence}>
             <Presence product={productItem} />
@@ -56,11 +59,19 @@ const ProductItem = () => {
           <div className={styles.characteristic}>
             <Characteristic data={productItem.characteristic} />
           </div>
-          <div className={styles.priceBlock}>
-            <PriceBlock product={productItem} />
+          <div className={styles.price}>
+            <Price className={styles.priceWrapper} product={productItem} />
+            <div className={styles.priceInfo}>
+              Цена действительна только для интернет-магазина и может отличаться
+              от цен в розничных магазинах.
+            </div>
           </div>
         </div>
+        <div className={styles.description}>
+          <Description productItem={productItem} />
+        </div>
       </Container>
+      <Slider />
     </section>
   );
 };

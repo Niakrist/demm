@@ -7,8 +7,11 @@ import Button from "../../../ui/Button/Button";
 import BurgerMenu from "../../../ui/BurgerMenu/BurgerMenu";
 import LinkIcon from "../../../ui/LinkIcon/LinkIcon";
 import PhoneGroup from "../../../ui/PhoneGroup/PhoneGroup";
+import { useSelector } from "react-redux";
 
 const HeaderMain = () => {
+  const { inCart } = useSelector((state) => state.cart);
+
   return (
     <div className={styles.main}>
       <Container className={styles.wrapper}>
@@ -23,7 +26,7 @@ const HeaderMain = () => {
             <LinkIcon to="/user" name="userIcon" />
           </div>
           <div className={styles.linkIcon}>
-            <LinkIcon to="/cart" name="cartIcon" inCart={2} />
+            <LinkIcon to="/cart" name="cartIcon" inCart={inCart} />
           </div>
           <BurgerMenu />
         </div>

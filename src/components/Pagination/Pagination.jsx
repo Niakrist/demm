@@ -9,7 +9,7 @@ const Pagination = () => {
   const { page, pages } = useSelector((state) => state.products);
 
   const pagesArray = Array.from({ length: pages }, (_, i) => i + 1);
-  console.log("pagesArray: ", pagesArray);
+
   return (
     <ul className={styles.list}>
       {pagesArray.map((p) => (

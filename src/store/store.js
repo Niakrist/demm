@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import cartSlice from "./cartSlice/cartSlice";
 import categoriesSlice from "./categoriesSlice/categoriesSlice";
 import filterSlice from "./filterSlice/filterSlice";
 
@@ -13,5 +14,6 @@ export const store = configureStore({
     categories: categoriesSlice,
     products: productsSlice,
     productItem: productItemSlice,
+    cart: cartSlice,
   },
 });

@@ -5,6 +5,8 @@ import CheckboxIcon from "./icons/CheckboxIcon";
 import DropDownIcon from "./icons/DropDownIcon";
 import IconArrow from "./icons/IconArrow";
 import LogoIcon from "./icons/LogoIcon";
+import PresenceNo from "./icons/PresenceNo";
+import PresenceYes from "./icons/PresenceYes";
 import SearchIcon from "./icons/SearchIcon";
 import StockIcon from "./icons/StockIcon";
 import UserIcon from "./icons/UserIcon";
@@ -22,6 +24,8 @@ const Icon = ({ name, className }) => {
     whatsapp: <Whatsapp className={className} />,
     address: <Address className={className} />,
     dropDownIcon: <DropDownIcon className={className} />,
+    presenceYes: <PresenceYes className={className} />,
+    presenceNo: <PresenceNo className={className} />,
   };
 
   return icons[name];
