@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
       <Link className={styles.link} to={product.id}>
         <img
           className={styles.img}
-          src={`http://localhost:3024/${product.images.present}`}
+          src={`http://localhost:3024/img/${product.img_src}`}
           alt=""
         />
         <div className={styles.info}>

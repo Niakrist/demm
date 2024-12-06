@@ -79,14 +79,13 @@
 .colorList {
   display: flex;
   align-items: center;
-  column-gap: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.cr,
-.black,
-.cx {
-  width: 50px;
-  height: 50px;
+.colorImg {
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
 
   font-weight: 600;
@@ -103,18 +102,10 @@
   cursor: pointer;
 }
 
-.cr {
-  background: linear-gradient(90deg, #959496 0%, #e6e6e6 100%);
-}
-.black {
-  background: linear-gradient(90deg, #9e876a 0%, #d5c29f 100%);
-}
-.cx {
-  background: linear-gradient(90deg, #d1d1d1 0%, #ddaf86 100%);
-}
-
 .active {
   border: 2px solid #c6bcb2;
+  background-color: #c6bcb2;
+  border-radius: 10px;
 }
 
 .priceInfo {

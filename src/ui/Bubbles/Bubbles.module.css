@@ -1,0 +1,29 @@
+.round,
+.roundActive {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+.round {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.2s;
+}
+
+.round:hover {
+  background-color: rgba(198, 188, 178, 1);
+}
+
+.roundActive {
+  background-color: rgba(198, 188, 178, 1);
+  transform: scale(1.2);
+}
+
+@media (max-width: 767px) {
+  .round,
+  .roundActive {
+    width: 8px;
+    height: 8px;
+  }
+}

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import Bubbles from "../../ui/Bubbles/Bubbles";
 import Container from "../Container/Container";
 import Icon from "../Icon/Icon";
 import styles from "./Promo.module.css";
@@ -41,12 +42,11 @@ const Promo = () => {
   return (
     <section
       className={styles.promo}
-      style={{ backgroundImage: `url(${slide.img})` }}
-    >
+      style={{ backgroundImage: `url(${slide.img})` }}>
       <Container className={styles.wrapper}>
         <div className={styles.contentWrapper}>
           <div className={styles.content}>
-            <Link className={styles.link} to="/">
+            <Link className={styles.link} to="/catalog">
               Перейти в каталог
               <Icon name="iconArrow" className={styles.iconArrow} />
             </Link>
@@ -61,12 +61,17 @@ const Promo = () => {
           <ul className={styles.list}>
             {promos.map((promo) => (
               <li key={promo.id}>
-                <span
+                <Bubbles
+                  onClick={handleChangeSlide}
+                  promo={promo}
+                  slide={slide}
+                />
+                {/* <span
                   className={
                     promo.id === slide.id ? styles.roundActive : styles.round
                   }
                   onClick={() => handleChangeSlide(promo.id)}
-                />
+                /> */}
               </li>
             ))}
           </ul>

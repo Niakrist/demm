@@ -11,6 +11,7 @@ import styles from "./ProductItem.module.css";
 import Price from "../Price/Price";
 import Description from "./Description/Description";
 import Slider from "../Slider/Slider";
+import { transformObjectInArr } from "../../utils/transformObjectInArr";
 
 const ProductItem = () => {
   const { id } = useParams();
@@ -18,13 +19,16 @@ const ProductItem = () => {
 
   const { productItem } = useSelector((state) => state.productItem);
 
-  const colors = ["cr", "black", "cx"];
-
   useEffect(() => {
     dispatch(fetchProductItem(id));
   }, [dispatch, id]);
 
   if (!productItem) return;
+
+  const colors = transformObjectInArr(productItem.colorsArr);
+  const characteristic = transformObjectInArr(productItem.characteristic);
+
+  console.log("colors: ", colors);
 
   console.log("productItem: ", productItem);
 
@@ -41,23 +45,28 @@ const ProductItem = () => {
           </div>
           <div className={styles.colorWrapper}>
             <p className={styles.color}>
-              Цвет: <span>{productItem.color}</span>
+              Цвет: <span>{Object.values(productItem.color)[0]}</span>
             </p>
             <ul className={styles.colorList}>
               {colors.map((color) => (
                 <li
-                  key={color}
+                  key={color.id}
                   className={clsx(
                     styles[color],
-                    color === "black" && styles.active
+                    color.id === Object.keys(productItem.color)[0] &&
+                      styles.active
                   )}>
-                  {color}
+                  <img
+                    className={styles.colorImg}
+                    src={`http://localhost:3024/img/${color.id}.webp`}
+                    alt={color.name}
+                  />
                 </li>
               ))}
             </ul>
           </div>
           <div className={styles.characteristic}>
-            <Characteristic data={productItem.characteristic} />
+            <Characteristic data={characteristic} />
           </div>
           <div className={styles.price}>
             <Price className={styles.priceWrapper} product={productItem} />

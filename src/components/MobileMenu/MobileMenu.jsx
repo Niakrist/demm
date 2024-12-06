@@ -14,6 +14,9 @@ import { useSelector } from "react-redux";
 
 const MobileMenu = () => {
   const items = useCategories();
+
+  console.log("items: ", items);
+
   if (!items) return;
 
   const { inCart } = useSelector((state) => state.cart);

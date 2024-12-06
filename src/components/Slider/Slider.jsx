@@ -8,7 +8,7 @@ import styles from "./Slider.module.css";
 const Slider = () => {
   const { products } = useSelector((state) => state.products);
 
-  console.log("productsl ", products);
+  if (!products) return;
 
   return (
     <div className={styles.slider}>
@@ -19,7 +19,7 @@ const Slider = () => {
             <li className={styles.item} key={product.id}>
               <img
                 className={styles.img}
-                src={`http://localhost:3024/${product.images.present}`}
+                src={`http://localhost:3024/img/${product.img_src}`}
                 alt=""
               />
               <div className={styles.content}>

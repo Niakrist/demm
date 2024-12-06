@@ -8,7 +8,9 @@ const Breadcrumbs = () => {
     <Container>
       <ul className={styles.breadcrumbs}>
         <li className={styles.item}>
-          <Link className={styles.link}>Главная</Link>
+          <Link to="/" className={styles.link}>
+            Главная
+          </Link>
         </li>
         <li className={styles.item}>
           <Link to="/catalog" className={styles.link}>

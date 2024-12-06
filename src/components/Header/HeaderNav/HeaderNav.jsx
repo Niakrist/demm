@@ -1,10 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import LinkCart from "../../../ui/LinkCart/LinkCart";
+import { transformObjectInArr } from "../../../utils/transformObjectInArr";
 import Container from "../../Container/Container";
 import Icon from "../../Icon/Icon";
 import styles from "./HeaderNav.module.css";
 const HeaderNav = () => {
+  const { categories } = useSelector((state) => state.categories);
+
+  const categoriesList = transformObjectInArr(categories);
+
   return (
     <div className={styles.nav}>
       <Container className={styles.wrapper}>
@@ -16,31 +22,15 @@ const HeaderNav = () => {
                 Акции
               </Link>
             </li>
-            <li>
-              <Link className={styles.link} to="/">
-                Смесители
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} to="/">
-                Душевые системы
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} to="/">
-                Душевые стойки
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} to="/">
-                Изливы
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.link} to="/">
-                Аксессуары
-              </Link>
-            </li>
+            {categoriesList.map((category) => (
+              <li key={category.id}>
+                <Link
+                  className={styles.link}
+                  to={`/category/?category=${category.id}`}>
+                  {category.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <div className={styles.linkCart}>

@@ -29,7 +29,9 @@ const DropDown = ({ items, name, type }) => {
             {type === "link"
               ? items.map((item) => (
                   <li key={item.id} className={styles.dropDownItem}>
-                    <Link to={`/${item.id}`} className={styles.dropDownLink}>
+                    <Link
+                      to={`/category/?category=${item.id}`}
+                      className={styles.dropDownLink}>
                       {item.name}
                     </Link>
                   </li>
