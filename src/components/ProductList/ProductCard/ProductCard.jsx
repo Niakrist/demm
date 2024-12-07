@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Presence from "../../Presence/Presence";
 import Price from "../../Price/Price";
@@ -12,8 +11,8 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <li className={styles.card}>
-      <Link className={styles.link} to={product.id}>
+    <>
+      <Link to={`/catalog/${product.id}`} className={styles.link}>
         <img
           className={styles.img}
           src={`http://localhost:3024/img/${product.img_src}`}
@@ -28,7 +27,7 @@ const ProductCard = ({ product }) => {
           <Price product={product} productCard />
         </div>
       </Link>
-    </li>
+    </>
   );
 };
 

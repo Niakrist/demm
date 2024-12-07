@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import Bubbles from "../../ui/Bubbles/Bubbles";
 import Container from "../Container/Container";
 import Icon from "../Icon/Icon";
 import styles from "./Promo.module.css";
+import BubbleList from "../../ui/BubbleList/BubbleList";
 
 const promos = [
   { id: "1", img: "/images/promo1.jpg" },
@@ -14,35 +14,38 @@ const promos = [
 ];
 
 const Promo = () => {
-  const [slide, setSlide] = useState(promos[0]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const timerIdRef = useRef(null);
 
-  const handleChangeSlide = (id) => {
-    const elem = promos.find((promo) => promo.id === id);
-    if (elem) {
-      clearInterval(timerIdRef.current);
-      setSlide(elem);
-    }
+  const handleNextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === promos.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handleClickSlide = (index) => {
+    setCurrentIndex(index);
   };
 
   useEffect(() => {
     timerIdRef.current = setInterval(() => {
-      const currentIndex = promos.findIndex((promo) => promo.id === slide.id);
-
-      if (currentIndex === promos.length - 1) {
-        setSlide(promos[0]);
-      } else {
-        setSlide(promos[currentIndex + 1]);
-      }
+      handleNextSlide();
     }, 5000);
-
     return () => clearInterval(timerIdRef.current);
-  }, [slide]);
+  }, [currentIndex]);
 
   return (
-    <section
-      className={styles.promo}
-      style={{ backgroundImage: `url(${slide.img})` }}>
+    <section className={styles.promo}>
+      <ul
+        className={styles.listSlide}
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {promos.map((promo) => (
+          <li key={promo.id} className={styles.item}>
+            <img className={styles.img} src={promo.img} alt="" />
+          </li>
+        ))}
+      </ul>
       <Container className={styles.wrapper}>
         <div className={styles.contentWrapper}>
           <div className={styles.content}>
@@ -58,23 +61,11 @@ const Promo = () => {
               международными стандартами качества.
             </p>
           </div>
-          <ul className={styles.list}>
-            {promos.map((promo) => (
-              <li key={promo.id}>
-                <Bubbles
-                  onClick={handleChangeSlide}
-                  promo={promo}
-                  slide={slide}
-                />
-                {/* <span
-                  className={
-                    promo.id === slide.id ? styles.roundActive : styles.round
-                  }
-                  onClick={() => handleChangeSlide(promo.id)}
-                /> */}
-              </li>
-            ))}
-          </ul>
+          <BubbleList
+            list={promos}
+            currentIndex={currentIndex}
+            onClick={handleClickSlide}
+          />
         </div>
       </Container>
     </section>

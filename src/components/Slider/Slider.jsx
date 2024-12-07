@@ -1,39 +1,76 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Container from "../Container/Container";
 import Icon from "../Icon/Icon";
 import styles from "./Slider.module.css";
 
-const Slider = () => {
+import { useState } from "react";
+import BubbleList from "../../ui/BubbleList/BubbleList";
+import SlideItem from "./SlideItem/SlideItem";
+import ProductCard from "../ProductList/ProductCard/ProductCard";
+
+const Slider = ({ title, card }) => {
   const { products } = useSelector((state) => state.products);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === products.length - 4 ? 0 : prevIndex + 1
+    );
+  };
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? products.length - 4 : prevIndex - 1
+    );
+  };
+
+  const handleClickSlide = (index) => {
+    setCurrentIndex(index);
+  };
 
   if (!products) return;
 
   return (
-    <div className={styles.slider}>
-      <button> 1 </button>
+    <section className={styles.slider}>
       <Container>
-        <ul className={styles.sliderWrapper}>
-          {products.map((product) => (
-            <li className={styles.item} key={product.id}>
-              <img
-                className={styles.img}
-                src={`http://localhost:3024/img/${product.img_src}`}
-                alt=""
-              />
-              <div className={styles.content}>
-                <h4 className={styles.title}>{product.title}</h4>
-                <Link className={styles.link}>
-                  Смотреть <Icon className={styles.icon} name="iconArrow" />
-                </Link>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <h2 className={styles.title}>{title}</h2>
       </Container>
-      <button> 2 </button>
-    </div>
+      <div className={styles.sliderWrapper}>
+        <button className={styles.btn} onClick={handlePrev}>
+          <Icon name="iconArrow" className={styles.arrowLeft} />
+        </button>
+        <Container>
+          <div className={styles.sliderContainer}>
+            <ul
+              className={styles.sliderList}
+              style={{ transform: `translateX(-${currentIndex * 330}px)` }}
+            >
+              {products.map((product) => {
+                return (
+                  <li className={styles.item} key={`item-${product.id}`}>
+                    {card ? (
+                      <ProductCard product={product} />
+                    ) : (
+                      <SlideItem product={product} />
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </Container>
+        <button className={styles.btn} onClick={handleNextSlide}>
+          <Icon name="iconArrow" className={styles.arrow} />
+        </button>
+      </div>
+      <div className={styles.wrapperBubbleList}>
+        <BubbleList
+          list={products.slice(0, -3)}
+          currentIndex={currentIndex}
+          onClick={handleClickSlide}
+        />
+      </div>
+    </section>
   );
 };
 

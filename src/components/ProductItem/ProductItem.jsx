@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchProductItem } from "../../store/productItemSlice/productItemSlice";
@@ -28,16 +28,12 @@ const ProductItem = () => {
   const colors = transformObjectInArr(productItem.colorsArr);
   const characteristic = transformObjectInArr(productItem.characteristic);
 
-  console.log("colors: ", colors);
-
-  console.log("productItem: ", productItem);
-
   return (
     <section className={styles.productItem}>
       <Container>
         <div className={styles.productWrapper}>
           <div className={styles.sliderGood}>
-            <SliderGood />
+            <SliderGood product={productItem} />
           </div>
           <h1 className={styles.title}>{productItem.title}</h1>
           <div className={styles.presence}>
@@ -55,7 +51,8 @@ const ProductItem = () => {
                     styles[color],
                     color.id === Object.keys(productItem.color)[0] &&
                       styles.active
-                  )}>
+                  )}
+                >
                   <img
                     className={styles.colorImg}
                     src={`http://localhost:3024/img/${color.id}.webp`}
@@ -80,7 +77,8 @@ const ProductItem = () => {
           <Description productItem={productItem} />
         </div>
       </Container>
-      <Slider />
+      <Slider title={"Коллекция ACIARIUM INOX"} />
+      <Slider title={"Подберите дополнительно"} card />
     </section>
   );
 };

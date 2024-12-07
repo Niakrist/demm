@@ -3,8 +3,6 @@ import Icon from "../Icon/Icon";
 import styles from "./Presence.module.css";
 
 const Presence = ({ product }) => {
-  console.log("product: ", product);
-
   const quantity = product.quantity;
 
   return (

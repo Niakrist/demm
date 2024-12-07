@@ -5,7 +5,7 @@
 .productWrapper {
   margin-bottom: 40px;
   display: grid;
-  grid-template-columns: 1fr 416px 1fr;
+  grid-template-columns: 526px auto 1fr;
   grid-template-rows: auto auto auto auto auto;
   column-gap: 24px;
 }

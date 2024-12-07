@@ -1,4 +1,3 @@
-import React from "react";
 import Address from "./icons/Address";
 import CartIcon from "./icons/CartIcon";
 import CheckboxIcon from "./icons/CheckboxIcon";
