@@ -4,7 +4,7 @@ export const fetchCategories = createAsyncThunk(
   "categories/fetchCategories",
   async () => {
     try {
-      const response = await fetch("http://localhost:3024/api/category");
+      const response = await fetch(`http://localhost:3024/api/category`);
       const data = await response.json();
       return data;
     } catch (error) {

@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import LinkCart from "../../../ui/LinkCart/LinkCart";
@@ -26,7 +25,8 @@ const HeaderNav = () => {
               <li key={category.id}>
                 <Link
                   className={styles.link}
-                  to={`/category/?category=${category.id}`}>
+                  to={`/catalog/?category=${category.id}`}
+                >
                   {category.name}
                 </Link>
               </li>

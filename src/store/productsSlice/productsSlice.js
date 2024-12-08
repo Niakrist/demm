@@ -2,10 +2,20 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
-  async () => {
+  async (queryParams) => {
+    const { page, category } = queryParams;
+
+    const params = [];
+    if (page) params.push(`page=${page}`);
+    if (category) params.push(`category=${category}`);
+    const queryString = params.length > 0 ? `/?${params.join("&")}` : "";
+
     try {
-      const response = await fetch("http://localhost:3024/api/goods");
+      const response = await fetch(
+        `http://localhost:3024/api/goods${queryString}`
+      );
       const data = await response.json();
+      console.log("data: ", data);
       return data;
     } catch (error) {
       console.log(error);

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import CatalogNavLink from "./CatalogNavLink/CatalogNavLink";
 import styles from "./CatalogNav.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,14 +11,37 @@ const CatalogNav = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-  console.log("categories: ", categories);
-
   const catalogsNav = [
-    { id: 1, name: "Смесители", img: "./images/mixers.jpg" },
-    { id: 2, name: "Душевые системы", img: "./images/shower-systems.jpg" },
-    { id: 3, name: "Душевые стойки", img: "./images/shower-racks.jpg" },
-    { id: 4, name: "Изливы", img: "./images/outpourings.jpg" },
-    { id: 5, name: "Аксессуары", img: "./images/accessories.jpg" },
+    {
+      id: 1,
+      name: "Смесители",
+      url: "/catalog/?category=faucet",
+      img: "./images/mixers.jpg",
+    },
+    {
+      id: 2,
+      name: "Душевые системы",
+      url: "/catalog/?category=shower-systems",
+      img: "./images/shower-systems.jpg",
+    },
+    {
+      id: 3,
+      name: "Душевые стойки",
+      url: "/catalog/?category=shower-racks",
+      img: "./images/shower-racks.jpg",
+    },
+    {
+      id: 4,
+      name: "Изливы",
+      url: "/catalog/?category=outpourings",
+      img: "./images/outpourings.jpg",
+    },
+    {
+      id: 5,
+      name: "Аксессуары",
+      url: "/catalog/?category=accessories",
+      img: "./images/accessories.jpg",
+    },
   ];
 
   return (
