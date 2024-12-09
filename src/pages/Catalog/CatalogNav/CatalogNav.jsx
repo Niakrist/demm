@@ -21,7 +21,7 @@ const CatalogNav = () => {
     {
       id: 2,
       name: "Душевые системы",
-      url: "/catalog/?category=shower-systems",
+      url: "/catalog/?category=dushevye-sistemy",
       img: "./images/shower-systems.jpg",
     },
     {
