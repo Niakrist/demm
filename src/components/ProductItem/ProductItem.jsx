@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchProductItem } from "../../store/productItemSlice/productItemSlice";
 import { clsx } from "../../utils/clsx";
 import Container from "../Container/Container";
@@ -25,6 +25,11 @@ const ProductItem = () => {
 
   if (!productItem) return;
 
+  const createLinkColor = (id, colorId) => {
+    const index = id.indexOf("-");
+    return id.slice(0, index + 1) + colorId;
+  };
+
   const colors = transformObjectInArr(productItem.colorsArr);
   const characteristic = transformObjectInArr(productItem.characteristic);
 
@@ -46,18 +51,19 @@ const ProductItem = () => {
             <ul className={styles.colorList}>
               {colors.map((color) => (
                 <li
-                  key={color.id}
                   className={clsx(
                     styles[color],
                     color.id === Object.keys(productItem.color)[0] &&
                       styles.active
                   )}
-                >
-                  <img
-                    className={styles.colorImg}
-                    src={`http://localhost:3024/img/${color.id}.webp`}
-                    alt={color.name}
-                  />
+                  key={color.id}>
+                  <Link to={`/catalog/${createLinkColor(id, color.id)}`}>
+                    <img
+                      className={styles.colorImg}
+                      src={`http://localhost:3024/img/${color.id}.webp`}
+                      alt={color.name}
+                    />
+                  </Link>
                 </li>
               ))}
             </ul>

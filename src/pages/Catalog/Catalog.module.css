@@ -6,6 +6,7 @@
   line-height: 1.05;
   letter-spacing: -0.04em;
   color: #122952;
+  text-transform: capitalize;
 }
 
 .wrapper {

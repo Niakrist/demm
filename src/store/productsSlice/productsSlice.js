@@ -15,7 +15,6 @@ export const fetchProducts = createAsyncThunk(
         `http://localhost:3024/api/goods${queryString}`
       );
       const data = await response.json();
-      console.log("data: ", data);
       return data;
     } catch (error) {
       console.log(error);

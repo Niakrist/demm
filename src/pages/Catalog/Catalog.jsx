@@ -10,19 +10,22 @@ import ProductList from "../../components/ProductList/ProductList";
 
 import styles from "./Catalog.module.css";
 import CatalogNav from "./CatalogNav/CatalogNav";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { fetchProducts } from "../../store/productsSlice/productsSlice";
 
 const Catalog = () => {
   const { products } = useSelector((state) => state.products);
+  const { categories } = useSelector((state) => state.categories);
+
   const dispatch = useDispatch();
+
   const [URLSearchParams] = useSearchParams();
-  const category = URLSearchParams.get("category");
+  const currentCategory = URLSearchParams.get("category");
   const page = URLSearchParams.get("page");
 
   useEffect(() => {
-    dispatch(fetchProducts({ category: category, page: page }));
-  }, [category, page]);
+    dispatch(fetchProducts({ category: currentCategory, page: page }));
+  }, [currentCategory, page]);
 
   return (
     <>
@@ -30,7 +33,9 @@ const Catalog = () => {
       <main>
         <Breadcrumbs />
         <Container>
-          <h1 className={styles.title}>Каталог</h1>
+          <h1 className={styles.title}>
+            {currentCategory ? categories[currentCategory] : "Каталог"}
+          </h1>
           <CatalogNav />
           <div className={styles.wrapper}>
             <aside>
