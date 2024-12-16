@@ -1,31 +1,60 @@
 .dropDown {
-  width: 100%;
-  text-align: left;
+  padding: 15px 0;
+  border-top: 1px solid #cfd8de;
 }
 
-.dropDown {
+.dropDownBtn {
+  width: 100%;
+  text-align: left;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #122952;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropDownBtnSmall {
+  width: 100%;
+  text-align: left;
+
   font-weight: 500;
   font-size: 20px;
   line-height: 1.35;
   letter-spacing: -0.02em;
   color: #122952;
-}
 
-.dropDown {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .dropDownList {
-  padding-top: 15px;
+  display: none;
+  padding: 15px 0;
+}
+
+.active {
+  display: block;
 }
 
 .dropDownItem {
   margin-bottom: 10px;
 }
 
+.dropDownItemFilter {
+  margin-bottom: 2px;
+}
+
 .dropDownItem:last-child {
+  margin-bottom: 0px;
+}
+
+.dropDownItemFilter:last-child {
   margin-bottom: 0px;
 }
 
@@ -45,6 +74,52 @@
 
 .dropDownIconActive {
   transform: rotate(180deg);
+}
+
+.label {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+}
+
+.textCheckbox {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #797d91;
+  transition: color 0.2s;
+}
+
+.textCheckbox:hover {
+  color: #003690;
+}
+
+.activeText {
+  color: #213f74;
+}
+
+.checkBox {
+  display: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.checkboxFilter {
+  width: 14px;
+  height: 14px;
+  stroke: #797d91;
+}
+
+.label:hover .checkboxFilter rect {
+  color: #003690;
+}
+
+.active {
+  fill: #213f74;
 }
 
 @media (max-width: 767px) {

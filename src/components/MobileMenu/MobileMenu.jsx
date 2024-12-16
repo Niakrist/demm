@@ -9,15 +9,14 @@ import Button from "../../ui/Button/Button";
 import LinkWhatsapp from "../../ui/LinkWhatsapp/LinkWhatsapp";
 import BurgerMenu from "../../ui/BurgerMenu/BurgerMenu";
 import DropDown from "../../ui/DropDown/DropDown";
-import { useCategories } from "../../hooks/useCategories";
+
 import { useSelector } from "react-redux";
+import { useFilterParams } from "../../hooks/useFilterParams";
 
 const MobileMenu = () => {
-  const items = useCategories();
+  const { categoriesLists } = useFilterParams();
 
-  console.log("items: ", items);
-
-  if (!items) return;
+  if (!categoriesLists) return;
 
   const { inCart } = useSelector((state) => state.cart);
 
@@ -34,7 +33,7 @@ const MobileMenu = () => {
         <nav className={styles.nav}>
           <ul>
             <li className={styles.item}>
-              <DropDown items={items} name="Каталог" type="link" />
+              <DropDown items={categoriesLists} name="Каталог" type="link" />
             </li>
             <li className={styles.item}>
               <Link className={styles.link}>Акции</Link>

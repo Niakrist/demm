@@ -9,7 +9,7 @@ const Breadcrumbs = () => {
 
   const location = useLocation();
 
-  console.log("location: ", location);
+  // console.log("location: ", location);
 
   return (
     <Container>

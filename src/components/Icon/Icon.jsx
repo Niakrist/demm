@@ -1,5 +1,6 @@
 import Address from "./icons/Address";
 import CartIcon from "./icons/CartIcon";
+import CheckboxFilter from "./icons/CheckboxFilter";
 import CheckboxIcon from "./icons/CheckboxIcon";
 import DropDownIcon from "./icons/DropDownIcon";
 import IconArrow from "./icons/IconArrow";
@@ -25,6 +26,7 @@ const Icon = ({ name, className }) => {
     dropDownIcon: <DropDownIcon className={className} />,
     presenceYes: <PresenceYes className={className} />,
     presenceNo: <PresenceNo className={className} />,
+    checkboxFilter: <CheckboxFilter className={className} />,
   };
 
   return icons[name];

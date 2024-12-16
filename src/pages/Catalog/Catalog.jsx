@@ -10,8 +10,9 @@ import ProductList from "../../components/ProductList/ProductList";
 
 import styles from "./Catalog.module.css";
 import CatalogNav from "./CatalogNav/CatalogNav";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { fetchProducts } from "../../store/productsSlice/productsSlice";
+import { useQueryParam } from "../../hooks/useQueryParam";
 
 const Catalog = () => {
   const { products } = useSelector((state) => state.products);
@@ -19,13 +20,17 @@ const Catalog = () => {
 
   const dispatch = useDispatch();
 
-  const [URLSearchParams] = useSearchParams();
-  const currentCategory = URLSearchParams.get("category");
-  const page = URLSearchParams.get("page");
+  // const [URLSearchParams] = useSearchParams();
+  // const currentCategory = URLSearchParams.get("category");
+  // const page = URLSearchParams.get("page");
+
+  // const params = currentCategory ? { category: currentCategory } : "";
+
+  const { searchParams } = useQueryParam();
 
   useEffect(() => {
-    dispatch(fetchProducts({ category: currentCategory, page: page }));
-  }, [currentCategory, page]);
+    dispatch(fetchProducts(searchParams));
+  }, [dispatch, searchParams]);
 
   return (
     <>
@@ -34,7 +39,8 @@ const Catalog = () => {
         <Breadcrumbs />
         <Container>
           <h1 className={styles.title}>
-            {currentCategory ? categories[currentCategory] : "Каталог"}
+            Каталог
+            {/* {currentCategory ? categories?.[currentCategory] : "Каталог"} */}
           </h1>
           <CatalogNav />
           <div className={styles.wrapper}>

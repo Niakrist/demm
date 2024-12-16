@@ -1,19 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./cartSlice/cartSlice";
 import categoriesSlice from "./categoriesSlice/categoriesSlice";
-import filterSlice from "./filterSlice/filterSlice";
-
 import menuToggleSlice from "./menuSlice/menuToggleSlice";
 import productItemSlice from "./productItemSlice/productItemSlice";
 import productsSlice from "./productsSlice/productsSlice";
+import colorsSlice from "./colorsSLice/colorsSlice";
+import collectionsSlice from "./collectionsSlice/collectionsSlice";
+import montageSlice from "./montageSlice/montageSlice";
+import typesSlice from "./typesSlice/typesSlice";
 
 export const store = configureStore({
   reducer: {
     menu: menuToggleSlice,
-    filter: filterSlice,
     categories: categoriesSlice,
     products: productsSlice,
     productItem: productItemSlice,
     cart: cartSlice,
+    colors: colorsSlice,
+    collections: collectionsSlice,
+    montage: montageSlice,
+    types: typesSlice,
   },
 });

@@ -3,16 +3,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (queryParams) => {
-    const { page, category } = queryParams;
-
-    const params = [];
-    if (page) params.push(`page=${page}`);
-    if (category) params.push(`category=${category}`);
-    const queryString = params.length > 0 ? `/?${params.join("&")}` : "";
+    const params = new URLSearchParams(queryParams);
+    console.log("params: ", params);
 
     try {
       const response = await fetch(
-        `http://localhost:3024/api/goods${queryString}`
+        `http://localhost:3024/api/goods/?${params.toString()}`
       );
       const data = await response.json();
       return data;
@@ -27,17 +23,60 @@ const productsSlice = createSlice({
   initialState: {
     isLoading: false,
     products: null,
-    page: null,
+    page: 1,
     pages: null,
+    category: [],
+    collection: [],
+    color: [],
+    montage: [],
+    type: [],
+    minPrice: 0,
+    maxPrice: 100000,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    toggleCategories: (state, action) => {
+      if (state.category.includes(action.payload)) {
+        state.category = state.category.filter((f) => f !== action.payload);
+      } else {
+        state.category.push(action.payload);
+      }
+    },
+    toggleCollections: (state, action) => {
+      if (state.collection.includes(action.payload)) {
+        state.collection = state.collection.filter((f) => f !== action.payload);
+      } else {
+        state.collection.push(action.payload);
+      }
+    },
+    toggleColors: (state, action) => {
+      if (state.color.includes(action.payload)) {
+        state.color = state.color.filter((f) => f !== action.payload);
+      } else {
+        state.color.push(action.payload);
+      }
+    },
+    toggleMontage: (state, action) => {
+      if (state.montage.includes(action.payload)) {
+        state.montage = state.montage.filter((f) => f !== action.payload);
+      } else {
+        state.montage.push(action.payload);
+      }
+    },
+    toggleType: (state, action) => {
+      if (state.type.includes(action.payload)) {
+        state.type = state.type.filter((f) => f !== action.payload);
+      } else {
+        state.type.push(action.payload);
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
         state.isLoading = true;
         state.products = null;
-        state.page = null;
+        state.page = 1;
         state.pages = null;
         state.error = null;
       })
@@ -57,5 +96,13 @@ const productsSlice = createSlice({
       });
   },
 });
+
+export const {
+  toggleCategories,
+  toggleCollections,
+  toggleColors,
+  toggleMontage,
+  toggleType,
+} = productsSlice.actions;
 
 export default productsSlice.reducer;
