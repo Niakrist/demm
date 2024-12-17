@@ -4,7 +4,6 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (queryParams) => {
     const params = new URLSearchParams(queryParams);
-    console.log("params: ", params);
 
     try {
       const response = await fetch(
@@ -30,8 +29,8 @@ const productsSlice = createSlice({
     color: [],
     montage: [],
     type: [],
-    minPrice: 0,
-    maxPrice: 100000,
+    minprice: null,
+    maxprice: null,
     error: null,
   },
   reducers: {
@@ -70,6 +69,22 @@ const productsSlice = createSlice({
         state.type.push(action.payload);
       }
     },
+    toggleMinPrice: (state, action) => {
+      state.minprice = action.payload;
+    },
+    toggleMaxPrice: (state, action) => {
+      state.maxprice = action.payload;
+    },
+    resetFilter: (state) => {
+      state.page = 1;
+      state.category = [];
+      state.collection = [];
+      state.color = [];
+      state.montage = [];
+      state.type = [];
+      state.minprice = null;
+      state.maxprice = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -103,6 +118,9 @@ export const {
   toggleColors,
   toggleMontage,
   toggleType,
+  toggleMinPrice,
+  toggleMaxPrice,
+  resetFilter,
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

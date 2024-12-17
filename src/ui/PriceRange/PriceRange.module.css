@@ -1,3 +1,7 @@
+.priceRange {
+  margin-bottom: 40px;
+}
+
 .title {
   padding: 15px 0;
   font-weight: 500;
@@ -36,6 +40,13 @@
   position: relative;
 }
 
+.line {
+  position: absolute;
+  background-color: #213f74;
+  height: 3px;
+  transition: left 0.2s, right 0.2s;
+}
+
 .min,
 .max {
   position: absolute;
@@ -50,6 +61,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: left 0.2s, right 0.2s;
 }
 
 .min::before {
@@ -62,9 +74,9 @@
 }
 
 .min {
-  left: 10%;
+  /* left: 10%; */
 }
 
 .max {
-  right: 10%;
+  /* right: 10%; */
 }

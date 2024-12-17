@@ -1,0 +1,33 @@
+.resetFilter {
+  opacity: 0;
+  padding-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #797d91;
+  transition: color 0.2s, opacity 0.2s;
+  position: relative;
+}
+
+.show {
+  opacity: 1;
+}
+
+.resetFilter::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #797d91;
+  transition: background-color 0.2s;
+}
+
+.resetFilter:hover {
+  color: #213f74;
+}
+
+.resetFilter:hover::before {
+  background-color: #213f74;
+}

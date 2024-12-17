@@ -5,6 +5,8 @@ import {
   toggleCategories,
   toggleCollections,
   toggleColors,
+  toggleMinPrice,
+  toggleMaxPrice,
   toggleMontage,
   toggleType,
 } from "../store/productsSlice/productsSlice";
@@ -31,12 +33,17 @@ export const useQueryParam = () => {
     if (filter.type?.length > 0) {
       params.type = filter.type.join(",");
     }
+    if (filter.minprice) {
+      params.minprice = filter.minprice;
+    }
+    if (filter.maxprice) {
+      params.maxprice = filter.maxprice;
+    }
 
     setSearchParams(params);
   }, [filter, setSearchParams]);
 
   const updateQueryParams = (key, value) => {
-    console.log("category: ", key, value);
     switch (key) {
       case "category":
         dispatch(toggleCategories(value));
@@ -52,6 +59,12 @@ export const useQueryParam = () => {
         break;
       case "type":
         dispatch(toggleType(value));
+        break;
+      case "minprice":
+        dispatch(toggleMinPrice(value));
+        break;
+      case "maxprice":
+        dispatch(toggleMaxPrice(value));
         break;
       default:
         break;

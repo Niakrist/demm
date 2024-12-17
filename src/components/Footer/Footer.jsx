@@ -24,7 +24,6 @@ const Footer = () => {
 
   const { isMenu } = useSelector((state) => state.menu);
 
-  console.log("isMenu: ", isMenu);
   return (
     <footer>
       <div className={styles.footer}>

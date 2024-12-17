@@ -8,6 +8,7 @@ import colorsSlice from "./colorsSLice/colorsSlice";
 import collectionsSlice from "./collectionsSlice/collectionsSlice";
 import montageSlice from "./montageSlice/montageSlice";
 import typesSlice from "./typesSlice/typesSlice";
+import priceSlice from "./priceSlice/priceSlice";
 
 export const store = configureStore({
   reducer: {
@@ -20,5 +21,6 @@ export const store = configureStore({
     collections: collectionsSlice,
     montage: montageSlice,
     types: typesSlice,
+    prices: priceSlice,
   },
 });
