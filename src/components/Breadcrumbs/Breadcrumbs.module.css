@@ -25,3 +25,13 @@
 .item:last-child .link {
   color: rgba(0, 7, 45, 0.8);
 }
+
+@media (max-width: 767px) {
+  .breadcrumbs {
+    padding-top: 20px;
+  }
+
+  .item .link {
+    font-size: 12px;
+  }
+}

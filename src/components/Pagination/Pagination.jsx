@@ -8,13 +8,14 @@ const Pagination = () => {
   const { page, pages } = useSelector((state) => state.products);
   const pagesArray = Array.from({ length: pages }, (_, i) => i + 1);
 
+  const cropPagesArray = pagesArray.slice(0, 7);
+
   return (
     <ul className={styles.list}>
-      {pagesArray.map((p) => (
+      {cropPagesArray.map((p) => (
         <li
           key={p}
-          className={clsx(styles.item, page === p && styles.itemActive)}
-        >
+          className={clsx(styles.item, page === p && styles.itemActive)}>
           <Link to={`/catalog/?page=${p}`} className={styles.btn}>
             {p}
           </Link>

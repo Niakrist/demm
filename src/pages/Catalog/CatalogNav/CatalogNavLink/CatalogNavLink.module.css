@@ -27,3 +27,32 @@
   line-height: 1.55;
   color: #797d91;
 }
+
+@media (max-width: 1279px) {
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding: 10px 20px;
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+
+  .img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 0;
+  }
+
+  .title {
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+  .goods {
+    font-size: 12px;
+  }
+}

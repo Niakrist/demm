@@ -16,7 +16,6 @@ const Price = ({ product, className, productCard }) => {
   const dispatch = useDispatch();
 
   const handleAddClick = () => {
-    console.log("isInCart: ", isInCart);
     dispatch(incrementInCart(product));
   };
   const handleRemoveClick = () => {
@@ -41,36 +40,37 @@ const Price = ({ product, className, productCard }) => {
       <p className={productCard ? styles.price : styles.priceItem}>
         {product.price} руб./шт
       </p>
-
-      {isInCart ? (
-        <div className={styles.cartWrapper}>
-          <div
-            className={productCard ? styles.btnGroups : styles.btnGroupsItem}>
-            <button onClick={handleRemoveClick} className={styles.btn}>
-              -
-            </button>
-            <input
-              onChange={handleChange}
-              className={styles.input}
-              type="text"
-              value={isInCart.cart}
-            />
-            <button onClick={handleAddClick} className={styles.btn}>
-              +
-            </button>
+      <div className={styles.wrapper}>
+        {isInCart ? (
+          <div className={styles.cartWrapper}>
+            <div
+              className={productCard ? styles.btnGroups : styles.btnGroupsItem}>
+              <button onClick={handleRemoveClick} className={styles.btn}>
+                -
+              </button>
+              <input
+                onChange={handleChange}
+                className={styles.input}
+                type="text"
+                value={isInCart.cart}
+              />
+              <button onClick={handleAddClick} className={styles.btn}>
+                +
+              </button>
+            </div>
+            <p className={styles.quantity}>шт.</p>
           </div>
-          <p className={styles.quantity}>шт.</p>
-        </div>
-      ) : (
-        <Button
-          onClick={handleAddClick}
-          className={productCard ? styles.cart : styles.cartItem}>
-          В корзину
+        ) : (
+          <Button
+            onClick={handleAddClick}
+            className={productCard ? styles.cart : styles.cartItem}>
+            В корзину
+          </Button>
+        )}
+        <Button className={productCard ? styles.buy : styles.buyItem}>
+          Купить в 1 клик
         </Button>
-      )}
-      <Button className={productCard ? styles.buy : styles.buyItem}>
-        Купить в 1 клик
-      </Button>
+      </div>
     </div>
   );
 };

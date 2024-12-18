@@ -5,13 +5,27 @@
 .list {
   padding-bottom: 40px;
   display: grid;
-  grid-template-columns: repeat(3, 306px);
+  grid-template-columns: repeat(3, minmax(280px, 100%));
   gap: 24px;
 }
 
 .item {
-  max-width: 306px;
+  /* max-width: 306px; */
   border-radius: 10px;
   padding: 20px;
   background-color: #fff;
+}
+
+@media (max-width: 1279px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(354px, 100%));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(155px, 100%));
+    gap: 10px;
+  }
 }

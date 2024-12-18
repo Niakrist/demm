@@ -17,7 +17,7 @@ const Description = ({ productItem }) => {
         </div>
         <div className={styles.collection}>
           <h3 className={styles.collectionTitle}>Комплектация</h3>
-          <ul>
+          <ul className={styles.list}>
             <li className={styles.item}>
               <Icon name="presenceYes" className={styles.presenceYes} />{" "}
               <span>Смеситель</span>

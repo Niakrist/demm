@@ -86,3 +86,46 @@
   object-fit: contain;
   border-radius: 10px;
 }
+
+@media (max-width: 1279px) {
+  .slider {
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 147px auto;
+    grid-template-rows: auto;
+    column-gap: 20px;
+  }
+
+  .imgWrapper {
+    order: 2;
+  }
+
+  .navSlide {
+    padding-top: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 32px auto 32px;
+    column-gap: 0;
+    row-gap: 14px;
+    align-items: baseline;
+    justify-items: center;
+    order: 1;
+  }
+
+  .listSlide {
+    flex-direction: column;
+    column-gap: 0;
+    row-gap: 14px;
+  }
+
+  .iconArrow {
+    transform: rotate(90deg);
+  }
+
+  .iconArrowLeft {
+    transform: rotate(-90deg);
+  }
+  .listItem {
+    width: 146px;
+    height: 146px;
+  }
+}

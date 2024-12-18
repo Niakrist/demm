@@ -25,7 +25,7 @@ const Filter = () => {
   };
 
   return (
-    <div>
+    <div className={styles.filter}>
       <DropDown items={categoriesLists} type="category" name="Категория" />
       <DropDown items={collectionsList} type="collection" name="Коллекция" />
       <DropDown items={colorsList} type="color" name="Цвет" />

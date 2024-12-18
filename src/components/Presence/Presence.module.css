@@ -26,3 +26,19 @@
   width: 16px;
   height: 16px;
 }
+
+@media (max-width: 1279px) {
+  .presence {
+    column-gap: 20px;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 767px) {
+  .presence {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    row-gap: 8px;
+    font-size: 10px;
+  }
+}

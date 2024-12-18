@@ -11,6 +11,24 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 290px 1fr;
+  grid-template-columns: minmax(auto, 290px) 1fr;
   column-gap: 40px;
+}
+
+@media (max-width: 1279px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+  .title {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    margin-bottom: 25px;
+    padding-top: 15px;
+    font-size: 26px;
+  }
 }

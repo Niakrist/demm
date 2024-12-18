@@ -12,9 +12,9 @@ const App = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(fetchProducts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <>

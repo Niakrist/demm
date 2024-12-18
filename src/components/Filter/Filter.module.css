@@ -31,3 +31,9 @@
 .resetFilter:hover::before {
   background-color: #213f74;
 }
+
+@media (max-width: 1279px) {
+  .filter {
+    display: none;
+  }
+}

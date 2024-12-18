@@ -28,6 +28,8 @@ const Slider = ({ title, card }) => {
     setCurrentIndex(index);
   };
 
+  console.log("products: ", products);
+
   if (!products) return;
 
   return (
@@ -43,8 +45,7 @@ const Slider = ({ title, card }) => {
           <div className={styles.sliderContainer}>
             <ul
               className={styles.sliderList}
-              style={{ transform: `translateX(-${currentIndex * 330}px)` }}
-            >
+              style={{ transform: `translateX(-${currentIndex * 330}px)` }}>
               {products.map((product) => {
                 return (
                   <li className={styles.item} key={`item-${product.id}`}>
