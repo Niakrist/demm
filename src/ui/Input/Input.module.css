@@ -1,0 +1,15 @@
+.input {
+  border-radius: 46px;
+  padding: 20px;
+  border: 1px solid #e5e9ec;
+  background-color: #f3f5f7;
+  width: 100%;
+  transition: border 0.2s;
+  color: #00072d;
+}
+
+.input:focus,
+.input:active,
+.input:hover {
+  border: 1px solid #c8d2dc;
+}

@@ -7,10 +7,17 @@ import Button from "../../../ui/Button/Button";
 import BurgerMenu from "../../../ui/BurgerMenu/BurgerMenu";
 import LinkIcon from "../../../ui/LinkIcon/LinkIcon";
 import PhoneGroup from "../../../ui/PhoneGroup/PhoneGroup";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleModal } from "../../../store/modalSlice/modalSlice";
 
 const HeaderMain = () => {
   const { inCart } = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(toggleModal(true));
+  };
 
   return (
     <div className={styles.main}>
@@ -21,7 +28,9 @@ const HeaderMain = () => {
         <Search />
         <div className={styles.communication}>
           <PhoneGroup className={styles.phone} />
-          <Button className={styles.btn}>Заказать звонок</Button>
+          <Button onClick={handleClick} className={styles.btn}>
+            Заказать звонок
+          </Button>
           <div className={styles.linkIcon}>
             <LinkIcon to="/user" name="userIcon" />
           </div>

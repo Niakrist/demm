@@ -1,7 +1,10 @@
-.from {
+.search {
+  position: relative;
   width: 100%;
-
   margin: 0 14px 0 0;
+}
+
+.from {
 }
 
 .label {
@@ -46,6 +49,14 @@
 
 .btnMobile {
   display: none;
+}
+
+.list {
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  background-color: #213f74;
+  width: 100%;
 }
 
 @media (max-width: 1279px) {

@@ -11,9 +11,14 @@ import { clsx } from "../../utils/clsx";
 import LinkWhatsapp from "../../ui/LinkWhatsapp/LinkWhatsapp";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { useSelector } from "react-redux";
+import Modal from "../Modal/Modal";
 
 const Footer = () => {
   const [isActiveInput, setIsActiveInput] = useState(false);
+
+  const { isShowModal } = useSelector((state) => state.isModal);
+
+  console.log("isShowModal: ", isShowModal);
 
   const handleFocus = () => {
     setIsActiveInput(true);
@@ -153,6 +158,7 @@ const Footer = () => {
         </Container>
       </div>
       {isMenu && <MobileMenu />}
+      {isShowModal && <Modal />}
     </footer>
   );
 };

@@ -15,7 +15,7 @@
   margin-bottom: 80px;
   display: grid;
   align-items: center;
-  justify-self: center;
+  /* justify-self: center; */
   grid-template-columns: 40px 1fr 40px;
   grid-template-rows: 1fr;
   gap: 24px;
@@ -70,4 +70,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 1500px) {
+  .sliderWrapper {
+    column-gap: 0px;
+  }
+
+  .sliderList {
+    column-gap: 20px;
+  }
 }

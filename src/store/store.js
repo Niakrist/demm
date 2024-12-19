@@ -9,6 +9,7 @@ import collectionsSlice from "./collectionsSlice/collectionsSlice";
 import montageSlice from "./montageSlice/montageSlice";
 import typesSlice from "./typesSlice/typesSlice";
 import priceSlice from "./priceSlice/priceSlice";
+import modalSlice from "./modalSlice/modalSlice";
 
 export const store = configureStore({
   reducer: {
@@ -22,5 +23,6 @@ export const store = configureStore({
     montage: montageSlice,
     types: typesSlice,
     prices: priceSlice,
+    isModal: modalSlice,
   },
 });

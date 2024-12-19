@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Icon from "../../components/Icon/Icon";
 import { clsx } from "../../utils/clsx";
 import styles from "./Search.module.css";
@@ -16,7 +17,7 @@ const Search = () => {
   };
 
   return (
-    <>
+    <div className={styles.search}>
       <button className={styles.btnMobile}>
         <Icon name="searchIcon" className={styles.searchIcon} />
       </button>
@@ -34,7 +35,10 @@ const Search = () => {
           <Icon name="searchIcon" className={styles.searchIcon} />
         </label>
       </form>
-    </>
+      <ul className={styles.list}>
+        <li className={styles.item}>1</li>
+      </ul>
+    </div>
   );
 };
 

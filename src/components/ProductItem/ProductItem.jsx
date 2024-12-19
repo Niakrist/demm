@@ -83,10 +83,8 @@ const ProductItem = () => {
           <Description productItem={productItem} />
         </div>
       </Container>
-      <div>1</div>
       <Slider title={"Коллекция ACIARIUM INOX"} />
       <Slider title={"Подберите дополнительно"} card />
-      <div>2</div>
     </section>
   );
 };
