@@ -1,13 +1,25 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Icon from "../../components/Icon/Icon";
 import { clsx } from "../../utils/clsx";
-import Button from "../Button/Button";
 import styles from "./Search.module.css";
+import SearchList from "./SearchList/SearchList";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import {
+  changeSearchText,
+  cleanSearchText,
+  fetchSearch,
+} from "../../store/searchSlice/searchSlice";
 
 const Search = () => {
-  const [isMobile, setIsMobile] = useState(true);
   const [isActiveInput, setIsActiveInput] = useState(false);
+  const { searchText } = useSelector((state) => state.search);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchSearch(searchText));
+  }, [dispatch, searchText]);
 
   const handleFocus = () => {
     setIsActiveInput(true);
@@ -15,6 +27,14 @@ const Search = () => {
 
   const handleBlur = () => {
     setIsActiveInput(false);
+  };
+
+  const handleChange = (e) => {
+    dispatch(changeSearchText(e.target.value));
+  };
+
+  const handleClean = () => {
+    dispatch(cleanSearchText());
   };
 
   return (
@@ -32,42 +52,21 @@ const Search = () => {
             name="search"
             onFocus={handleFocus}
             onBlur={handleBlur}
+            value={searchText}
+            onChange={handleChange}
           />
-          <Icon name="searchIcon" className={styles.searchIcon} />
+          {searchText ? (
+            <button onClick={handleClean} className={styles.cleanBtn}></button>
+          ) : (
+            <Icon name="searchIcon" className={styles.searchIcon} />
+          )}
         </label>
       </form>
-      <ul className={styles.list}>
-        <li className={styles.item}>
-          <Link to="" className={styles.link}>
-            <img src="./images/search-img.png" alt="" />
-            <div className={styles.content}>
-              <p className={styles.title}>
-                Demm Rory Смеситель для биде на 1 отв. с донным клапаном, цвет:
-                бронза
-              </p>
-              <p className={styles.price}>45 220 руб./шт</p>
-            </div>
-          </Link>
-        </li>
-        <li className={styles.item}>
-          <Link to="" className={styles.link}>
-            <img src="./images/search-img.png" alt="" />
-            <div className={styles.content}>
-              <p className={styles.title}>
-                Demm Rory Смеситель для биде на 1 отв. с донным клапаном, цвет:
-                бронза
-              </p>
-              <p className={styles.price}>45 220 руб./шт</p>
-            </div>
-          </Link>
-        </li>
-        <li className={styles.item}>
-          <Button className={styles.btn}>
-            Все результаты{" "}
-            <Icon name="iconArrow" className={styles.iconArrow} />{" "}
-          </Button>
-        </li>
-      </ul>
+      {searchText && (
+        <div className={styles.wrapper}>
+          <SearchList />
+        </div>
+      )}
     </div>
   );
 };

@@ -1,0 +1,35 @@
+.list {
+  padding-right: 20px;
+  width: 100%;
+  max-height: 273px;
+  overflow-y: scroll;
+}
+
+.list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.list::-webkit-scrollbar-track {
+  background-color: #e1eaf1;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: #122952;
+  border-radius: 20px;
+  border: 3px solid #122952;
+}
+
+.item {
+  /* padding-top: 20px; */
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 20px 30px;
+}
+
+.iconArrow {
+  width: 5px;
+  height: 8px;
+  color: #fff;
+}

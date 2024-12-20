@@ -10,6 +10,7 @@ import montageSlice from "./montageSlice/montageSlice";
 import typesSlice from "./typesSlice/typesSlice";
 import priceSlice from "./priceSlice/priceSlice";
 import modalSlice from "./modalSlice/modalSlice";
+import searchSlice from "./searchSlice/searchSlice";
 
 export const store = configureStore({
   reducer: {
@@ -24,5 +25,6 @@ export const store = configureStore({
     types: typesSlice,
     prices: priceSlice,
     isModal: modalSlice,
+    search: searchSlice,
   },
 });
