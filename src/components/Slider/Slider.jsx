@@ -28,8 +28,6 @@ const Slider = ({ title, card }) => {
     setCurrentIndex(index);
   };
 
-  console.log("products: ", products);
-
   if (!products) return;
 
   return (

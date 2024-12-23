@@ -38,6 +38,10 @@
   color: #122952;
 }
 
+.cartList {
+  width: 100%;
+}
+
 .item:not(:last-child) {
   margin-bottom: 24px;
 }
@@ -46,6 +50,10 @@
   width: 150px;
   height: 150px;
   object-fit: contain;
+}
+
+.info {
+  flex-grow: 1;
 }
 
 .infoTitle {
@@ -63,6 +71,7 @@
   color: #4d526c;
 }
 .controls {
+  width: 300px;
   display: flex;
   align-items: center;
   column-gap: 24px;
@@ -99,17 +108,18 @@
 }
 
 .price {
+  width: 100px;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: #122952;
+  white-space: nowrap;
 }
 
 .del {
   min-width: 20px;
   min-height: 20px;
-
   position: relative;
 }
 
@@ -176,7 +186,6 @@
 }
 
 .btnSend {
-  margin-bottom: 12px;
   padding: 20px;
   width: 100%;
 }
@@ -190,6 +199,7 @@
 }
 
 .privacyPolicy {
+  margin-top: 12px;
   display: flex;
   text-align: left;
   justify-content: center;

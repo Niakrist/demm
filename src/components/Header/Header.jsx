@@ -12,7 +12,6 @@ const Header = () => {
 
   const location = useLocation();
 
-  console.log("location: ", location);
   useEffect(() => {
     dispatch(cleanSearchText());
   }, [location]);

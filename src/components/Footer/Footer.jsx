@@ -12,13 +12,12 @@ import LinkWhatsapp from "../../ui/LinkWhatsapp/LinkWhatsapp";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { useSelector } from "react-redux";
 import Modal from "../Modal/Modal";
+import OrderModal from "../OrderModal/OrderModal";
 
 const Footer = () => {
   const [isActiveInput, setIsActiveInput] = useState(false);
 
-  const { isShowModal } = useSelector((state) => state.isModal);
-
-  console.log("isShowModal: ", isShowModal);
+  const { isShowModal, isOrderModal } = useSelector((state) => state.isModal);
 
   const handleFocus = () => {
     setIsActiveInput(true);
@@ -38,13 +37,7 @@ const Footer = () => {
               <img className={styles.logoImg} src={logoSrc} alt="Logo" />
             </div>
             <LinkWhatsapp className={styles.linkWhatsapp} />
-            {/* <a
-              className={styles.linkWhatsapp}
-              href="https://wa.me/+79999999999"
-              target="_blank">
-              <Icon name="whatsapp" className={styles.whatsapp} />{" "}
-              <span>Написать в WhatsApp</span>
-            </a> */}
+
             <div className={styles.navFirst}>
               <h3 className={styles.title}>Каталог</h3>
               <ul className={styles.list}>
@@ -157,6 +150,8 @@ const Footer = () => {
           </div>
         </Container>
       </div>
+
+      {isOrderModal && <OrderModal />}
       {isMenu && <MobileMenu />}
       {isShowModal && <Modal />}
     </footer>

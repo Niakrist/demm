@@ -1,3 +1,7 @@
+.wrapper {
+  position: relative;
+}
+
 .checkbox {
   position: absolute;
   z-index: -1;
@@ -30,4 +34,12 @@
 
 .checkboxIconActive path {
   opacity: 1;
+}
+
+.error {
+  position: absolute;
+  left: 20px;
+  bottom: -18px;
+  font-size: 12px;
+  color: #f00;
 }

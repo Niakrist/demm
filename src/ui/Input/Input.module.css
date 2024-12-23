@@ -1,3 +1,7 @@
+.wrapper {
+  position: relative;
+}
+
 .input {
   border-radius: 46px;
   padding: 20px;
@@ -12,4 +16,21 @@
 .input:active,
 .input:hover {
   border: 1px solid #c8d2dc;
+}
+
+.errroBorder {
+  border: 1px solid #f00;
+}
+.errroBorder:focus,
+.errroBorder:active,
+.errroBorder:hover {
+  border: 1px solid #f00;
+}
+
+.error {
+  position: absolute;
+  left: 20px;
+  bottom: -18px;
+  font-size: 12px;
+  color: #f00;
 }
