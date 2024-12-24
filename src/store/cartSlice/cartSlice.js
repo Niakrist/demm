@@ -47,10 +47,18 @@ export const cartSlice = createSlice({
         item.id === product.id ? { ...item, cart: value } : item
       );
     },
+    clearCart: (state) => {
+      state.inCart = [];
+    },
   },
 });
 
-export const { incrementInCart, decrementInCart, removeFromCart, inputInCart } =
-  cartSlice.actions;
+export const {
+  incrementInCart,
+  decrementInCart,
+  removeFromCart,
+  inputInCart,
+  clearCart,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

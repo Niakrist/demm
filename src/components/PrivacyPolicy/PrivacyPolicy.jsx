@@ -1,24 +1,20 @@
-import React, { useState } from "react";
-import Button from "../../ui/Button/Button";
+import React from "react";
 import { clsx } from "../../utils/clsx";
 import Icon from "../Icon/Icon";
 import styles from "./PrivacyPolicy.module.css";
 
-const PrivacyPolicy = ({ className, error }) => {
-  const [isCheck, setIsCheck] = useState(false);
-
-  const toggleCheck = () => {
-    setIsCheck(!isCheck);
-  };
+const PrivacyPolicy = ({ className, privacyPolicy, onChange, errors }) => {
   return (
     <div className={styles.wrapper}>
       <input
         className={styles.checkbox}
+        name="check"
         type="checkbox"
         id="checkboxPrivacyPolicy"
+        checked={privacyPolicy.check}
+        onChange={onChange}
       />
       <label
-        onClick={toggleCheck}
         className={clsx(styles.checkboxCastom, className)}
         htmlFor="checkboxPrivacyPolicy">
         <Icon
@@ -26,12 +22,12 @@ const PrivacyPolicy = ({ className, error }) => {
           className={clsx(
             styles.checkboxIcon,
             className,
-            isCheck && styles.checkboxIconActive
+            privacyPolicy.check && styles.checkboxIconActive
           )}
         />
         <span>Я согласен(а) с Политикой конфиденциальности.</span>
       </label>
-      {error && <p className={styles.error}>{error}</p>}
+      {errors && <p className={styles.error}>{errors.check}</p>}
     </div>
   );
 };

@@ -2,6 +2,7 @@ export const validator = (data, config) => {
   const errors = {};
   const validate = (validateMethod, data, config) => {
     let statusValidate = null;
+
     switch (validateMethod) {
       case "isRequired": {
         statusValidate = data.trim() === "";
@@ -30,9 +31,14 @@ export const validator = (data, config) => {
         statusValidate = data.length !== 11;
         break;
       }
+      case "isChecked": {
+        statusValidate = !data;
+        break;
+      }
       default:
         break;
     }
+
     if (statusValidate) {
       return config.message;
     }

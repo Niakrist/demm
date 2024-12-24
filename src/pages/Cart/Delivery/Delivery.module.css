@@ -1,0 +1,19 @@
+.delivery {
+  margin-bottom: 80px;
+}
+
+.deliveryTitle {
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  color: #122952;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 24px;
+}
