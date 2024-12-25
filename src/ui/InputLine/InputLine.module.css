@@ -1,0 +1,41 @@
+.wrapper {
+  position: relative;
+}
+
+.input {
+  width: 280px;
+  padding-bottom: 15px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #fff;
+
+  background-color: transparent;
+  outline: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  transition: border-bottom 0.2s;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.input:focus,
+.input:active {
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+
+.inputError,
+.inputError:focus,
+.inputError:active {
+  border-bottom: 1px solid #f00;
+}
+
+.error {
+  position: absolute;
+  left: 0px;
+  bottom: -18px;
+  font-size: 12px;
+  color: #f00;
+}

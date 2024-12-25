@@ -18,7 +18,7 @@ const Search = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchSearch(searchText));
+    searchText.length && dispatch(fetchSearch(searchText));
   }, [dispatch, searchText]);
 
   const handleFocus = () => {

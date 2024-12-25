@@ -5,12 +5,15 @@ import {
   decrementInCart,
   removeFromCart,
   inputInCart,
+  addByNow,
 } from "../../store/cartSlice/cartSlice";
+import { toggleModalByNow } from "../../store/modalSlice/modalSlice";
 import Button from "../../ui/Button/Button";
 import styles from "./Price.module.css";
 
 const Price = ({ product, className, productCard }) => {
   const { inCart } = useSelector((state) => state.cart);
+  const { byNow } = useSelector((state) => state.cart);
   const isInCart = inCart.find((item) => item.id === product.id);
 
   const dispatch = useDispatch();
@@ -33,6 +36,11 @@ const Price = ({ product, className, productCard }) => {
     if (regEx.test(num)) {
       dispatch(inputInCart({ product, value: num }));
     }
+  };
+
+  const handleByNow = () => {
+    dispatch(toggleModalByNow(true));
+    dispatch(addByNow({ product, value: 1 }));
   };
 
   return (
@@ -67,7 +75,9 @@ const Price = ({ product, className, productCard }) => {
             В корзину
           </Button>
         )}
-        <Button className={productCard ? styles.buy : styles.buyItem}>
+        <Button
+          onClick={handleByNow}
+          className={productCard ? styles.buy : styles.buyItem}>
           Купить в 1 клик
         </Button>
       </div>

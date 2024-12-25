@@ -13,11 +13,14 @@ import MobileMenu from "../MobileMenu/MobileMenu";
 import { useSelector } from "react-redux";
 import Modal from "../Modal/Modal";
 import OrderModal from "../OrderModal/OrderModal";
+import ModalByNow from "../ModalByNow/ModalByNow";
 
 const Footer = () => {
   const [isActiveInput, setIsActiveInput] = useState(false);
 
-  const { isShowModal, isOrderModal } = useSelector((state) => state.isModal);
+  const { isShowModal, isOrderModal, isModalByNow } = useSelector(
+    (state) => state.isModal
+  );
 
   const handleFocus = () => {
     setIsActiveInput(true);
@@ -111,8 +114,8 @@ const Footer = () => {
                   )}>
                   <label className={styles.label}>
                     <input
-                      placeholder="Электронная почта"
                       className={styles.input}
+                      placeholder="Электронная почта"
                       type="text"
                       onFocus={handleFocus}
                       onBlur={handleBlur}
@@ -150,10 +153,10 @@ const Footer = () => {
           </div>
         </Container>
       </div>
-
-      {isOrderModal && <OrderModal />}
       {isMenu && <MobileMenu />}
       {isShowModal && <Modal />}
+      {isModalByNow && <ModalByNow />}
+      {isOrderModal && <OrderModal />}
     </footer>
   );
 };

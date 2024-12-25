@@ -1,12 +1,12 @@
 .inputsGroup {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   column-gap: 20px;
 }
 
 .input {
-  width: 220px;
+  width: 280px;
   padding-bottom: 15px;
 
   font-weight: 400;
@@ -27,6 +27,13 @@
 .input:focus,
 .input:active {
   border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+
+.inputErrorLine,
+.inputErrorLine:hover,
+.inputErrorLine:focus,
+.inputErrorLine:active {
+  border-bottom: 1px solid #f00;
 }
 
 .color {

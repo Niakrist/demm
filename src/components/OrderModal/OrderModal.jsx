@@ -2,10 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useKeypress } from "../../hooks/useKeypress";
 import { clearCart } from "../../store/cartSlice/cartSlice";
 import { toggleOrderModal } from "../../store/modalSlice/modalSlice";
-import { clearOrderData } from "../../store/orderDataSlice/orderDataSlice";
+import {
+  addOrderData,
+  clearOrderData,
+} from "../../store/orderDataSlice/orderDataSlice";
 import Button from "../../ui/Button/Button";
+import { getTotalPrice } from "../../utils/getTotalPrice";
 
 import styles from "./OrderModal.module.css";
 const OrderModal = () => {
@@ -13,8 +18,9 @@ const OrderModal = () => {
   const navigate = useNavigate();
 
   const { orderData } = useSelector((state) => state.order);
+  const { inCart } = useSelector((state) => state.cart);
 
-  console.log("orderData: ", orderData);
+  const [products, totalPrice, priceDelivery] = getTotalPrice(inCart);
 
   const handleClick = () => {
     dispatch(toggleOrderModal(false));
@@ -22,6 +28,10 @@ const OrderModal = () => {
     dispatch(clearCart());
     navigate("/");
   };
+
+  useKeypress("Escape", handleClick);
+
+  const formatter = new Intl.NumberFormat("ru-RU");
 
   return ReactDOM.createPortal(
     <div className={styles.wrapper}>
@@ -54,10 +64,22 @@ const OrderModal = () => {
             <span>Квартира</span>
             <span>{orderData.flat}</span>
           </li>
+          <li className={styles.item}>
+            <span>Товаров</span>
+            <span>{products} шт</span>
+          </li>
+          <li className={styles.item}>
+            <span>Доставка</span>
+            <span>
+              {priceDelivery
+                ? `${formatter.format(priceDelivery)} руб.`
+                : "Бесплатно"}
+            </span>
+          </li>
         </ul>
         <div className={styles.orderPrice}>
           <span>К оплате</span>
-          <span>100</span>
+          <span>{formatter.format(totalPrice + priceDelivery)} руб.</span>
         </div>
         <Button onClick={handleClick} className={styles.btn}>
           На главную

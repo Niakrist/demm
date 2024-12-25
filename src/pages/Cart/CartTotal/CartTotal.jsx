@@ -1,31 +1,12 @@
 import React from "react";
 import PrivacyPolicy from "../../../components/PrivacyPolicy/PrivacyPolicy";
 import Button from "../../../ui/Button/Button";
+import { getTotalPrice } from "../../../utils/getTotalPrice";
 
 import styles from "./CartTotal.module.css";
 
 const CartTotal = ({ inCart, costumerInfo, onChange, errors }) => {
   const formatter = new Intl.NumberFormat("ru-RU");
-
-  const getTotalPrice = (inCart) => {
-    const products = inCart.reduce(
-      (acc, item) => (acc += Number(item.cart)),
-      0
-    );
-    const totalPrice = inCart.reduce(
-      (acc, item) => (acc += item.price * item.cart),
-      0
-    );
-    let priceDelivery = 0;
-    if (totalPrice > 100000) {
-      priceDelivery = 0;
-    } else if (totalPrice > 50000) {
-      priceDelivery = 1500;
-    } else {
-      priceDelivery = 5000;
-    }
-    return [products, totalPrice, priceDelivery];
-  };
 
   const [products, totalPrice, priceDelivery] = getTotalPrice(inCart);
 
@@ -76,6 +57,7 @@ const CartTotal = ({ inCart, costumerInfo, onChange, errors }) => {
               privacyPolicy={costumerInfo}
               onChange={onChange}
               errors={errors}
+              id="cart"
             />
           </div>
         </div>

@@ -1,0 +1,25 @@
+.wrapper {
+  position: relative;
+}
+
+.inputErrorLine,
+.inputErrorLine:hover,
+.inputErrorLine:focus,
+.inputErrorLine:active {
+  border-bottom: 1px solid #f00;
+}
+
+.inputError,
+.inputError:hover,
+.inputError:focus,
+.inputError:active {
+  border: 1px solid #f00;
+}
+
+.error {
+  position: absolute;
+  left: 0px;
+  bottom: -18px;
+  font-size: 12px;
+  color: #f00;
+}

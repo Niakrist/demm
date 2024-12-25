@@ -4,6 +4,7 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState: {
     inCart: [],
+    productByNow: {},
   },
   reducers: {
     incrementInCart: (state, action) => {
@@ -50,6 +51,12 @@ export const cartSlice = createSlice({
     clearCart: (state) => {
       state.inCart = [];
     },
+    addByNow: (state, action) => {
+      state.productByNow = {
+        ...action.payload.product,
+        cart: action.payload.value,
+      };
+    },
   },
 });
 
@@ -59,6 +66,7 @@ export const {
   removeFromCart,
   inputInCart,
   clearCart,
+  addByNow,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -12,9 +12,13 @@ const App = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+  const getDeliveryDate = () => {
+    const data = new Date();
+    console.log(data.getMonth());
+    console.log(data.getDate());
+  };
+
+  getDeliveryDate();
 
   return (
     <>

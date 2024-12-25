@@ -1,5 +1,7 @@
 import React from "react";
 import Input from "../../../ui/Input/Input";
+import InputField from "../../../ui/InputField/InputField";
+import { clsx } from "../../../utils/clsx";
 import styles from "./Delivery.module.css";
 
 const Delivery = ({ inCart, costumerInfo, onChange, errors, handleSubmit }) => {
@@ -9,7 +11,8 @@ const Delivery = ({ inCart, costumerInfo, onChange, errors, handleSubmit }) => {
         <>
           <h2 className={styles.deliveryTitle}>Адрес доставки</h2>
           <form id="cartFrom" onSubmit={handleSubmit} className={styles.form}>
-            <Input
+            <InputField
+              className={clsx(styles.input, errors.name && styles.inputError)}
               type="text"
               name="name"
               placeholder="ФИО"
@@ -17,7 +20,8 @@ const Delivery = ({ inCart, costumerInfo, onChange, errors, handleSubmit }) => {
               onChange={onChange}
               error={errors.name}
             />
-            <Input
+            <InputField
+              className={clsx(styles.input, errors.phone && styles.inputError)}
               type="tel"
               name="phone"
               placeholder="79998887766"
@@ -25,7 +29,8 @@ const Delivery = ({ inCart, costumerInfo, onChange, errors, handleSubmit }) => {
               onChange={onChange}
               error={errors.phone}
             />
-            <Input
+            <InputField
+              className={clsx(styles.input, errors.email && styles.inputError)}
               type="email"
               name="email"
               placeholder="E-Mail"
@@ -33,7 +38,8 @@ const Delivery = ({ inCart, costumerInfo, onChange, errors, handleSubmit }) => {
               onChange={onChange}
               error={errors.email}
             />
-            <Input
+            <InputField
+              className={clsx(styles.input, errors.city && styles.inputError)}
               type="text"
               name="city"
               placeholder="Город"
@@ -41,7 +47,8 @@ const Delivery = ({ inCart, costumerInfo, onChange, errors, handleSubmit }) => {
               onChange={onChange}
               error={errors.city}
             />
-            <Input
+            <InputField
+              className={clsx(styles.input, errors.street && styles.inputError)}
               type="text"
               name="street"
               placeholder="Улица, дом"
@@ -49,7 +56,8 @@ const Delivery = ({ inCart, costumerInfo, onChange, errors, handleSubmit }) => {
               onChange={onChange}
               error={errors.street}
             />
-            <Input
+            <InputField
+              className={clsx(styles.input, errors.flat && styles.inputError)}
               type="number"
               name="flat"
               placeholder="Квартира"

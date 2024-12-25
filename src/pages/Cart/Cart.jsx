@@ -29,8 +29,6 @@ const Cart = () => {
   const [validationErrors, setValidationErrors] = useState({});
   const [costumerInfo, setCostumerInfo] = useState(initialCostumerInfo);
 
-  console.log("inCart: ", inCart);
-
   const dispatch = useDispatch();
 
   const errors = useValidate(costumerInfo, validatorConfig);

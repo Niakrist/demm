@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import ReactDOM from "react-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useKeypress } from "../../hooks/useKeypress";
-import { toggleModal } from "../../store/modalSlice/modalSlice";
+import {
+  toggleModal,
+  toggleModalByNow,
+} from "../../store/modalSlice/modalSlice";
 import Button from "../../ui/Button/Button";
+import Input from "../../ui/Input/Input";
 import PrivacyPolicy from "../PrivacyPolicy/PrivacyPolicy";
-import styles from "./Modal.module.css";
+import styles from "./ModalByNow.module.css";
 import { validatorConfig } from "../../constats/validatorConfig";
 import { useValidate } from "../../hooks/useValidate";
 import InputField from "../../ui/InputField/InputField";
 import { clsx } from "../../utils/clsx";
 
-const Modal = () => {
-  const [person, setPerson] = useState({ name: "", phone: "", check: false });
+const ModalByNow = () => {
+  const { productByNow } = useSelector((state) => state.cart);
+
+  const [person, setPerson] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    check: false,
+  });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
   const errors = useValidate(person, validatorConfig);
@@ -39,7 +50,7 @@ const Modal = () => {
   const refModal = useRef(null);
 
   const closeModal = () => {
-    dispatch(toggleModal(false));
+    dispatch(toggleModalByNow(false));
   };
 
   const handleClick = ({ target }) => {
@@ -66,14 +77,22 @@ const Modal = () => {
   };
 
   return ReactDOM.createPortal(
-    <div ref={refModal} className={styles.wrapperModal}>
-      <div className={styles.modal}>
-        <h2 className={styles.title}>Оставьте заявку на обратный звонок</h2>
-        <p className={styles.text}>
-          Заполните форму, наш специалист свяжется с вами в ближайшее время.
-        </p>
+    <div ref={refModal} className={styles.wrapper}>
+      <div className={styles.modalByNow}>
+        <h3 className={styles.title}>Купить сейчас</h3>
+        <div className={styles.product}>
+          <img
+            className={styles.img}
+            src={`http://localhost:3024/img/${productByNow.img_src}`}
+            alt=""
+          />
+          <p className={styles.name}>{productByNow.title}</p>
+        </div>
 
-        <form id="formModal" className={styles.form} onSubmit={handleSubmit}>
+        <form
+          id="formModalByNow"
+          className={styles.form}
+          onSubmit={handleSubmit}>
           <InputField
             className={clsx(
               styles.input,
@@ -98,16 +117,28 @@ const Modal = () => {
             onChange={handleChange}
             error={validationErrors.phone}
           />
+          <InputField
+            className={clsx(
+              styles.input,
+              validationErrors.email && styles.inputError
+            )}
+            type="email"
+            name="email"
+            placeholder="E-Mail"
+            value={person.email}
+            onChange={handleChange}
+            error={validationErrors.email}
+          />
           <PrivacyPolicy
             className={styles.color}
             privacyPolicy={person}
             onChange={handleCheck}
             errors={validationErrors}
-            id="modal"
+            id="modalByNow"
           />
         </form>
 
-        <Button form="formModal" type="submit" className={styles.btn}>
+        <Button form="formModalByNow" type="submit" className={styles.btn}>
           Оставить заявку
         </Button>
         <button onClick={closeModal} className={styles.close}></button>
@@ -117,4 +148,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default ModalByNow;
