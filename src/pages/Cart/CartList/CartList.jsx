@@ -17,7 +17,6 @@ const CartList = ({ inCart }) => {
   const handleIncrement = (item) => {
     dispatch(incrementInCart(item));
   };
-
   const handleDecrement = (item) => {
     if (item.cart > 1) {
       dispatch(decrementInCart(item));
@@ -25,7 +24,6 @@ const CartList = ({ inCart }) => {
       dispatch(removeFromCart(item));
     }
   };
-
   const handleRemove = (item) => {
     dispatch(removeFromCart(item));
   };

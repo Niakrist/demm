@@ -31,7 +31,8 @@ const productsSlice = createSlice({
     type: [],
     minprice: null,
     maxprice: null,
-    sort: null,
+    sort: "",
+    direction: "",
     error: null,
   },
   reducers: {
@@ -89,6 +90,9 @@ const productsSlice = createSlice({
     sortedFilter: (state, action) => {
       state.sort = action.payload;
     },
+    toggleDirection: (state, action) => {
+      state.direction = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -125,6 +129,7 @@ export const {
   toggleMaxPrice,
   resetFilter,
   sortedFilter,
+  toggleDirection,
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

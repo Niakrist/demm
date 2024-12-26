@@ -9,6 +9,8 @@ import {
   toggleMaxPrice,
   toggleMontage,
   toggleType,
+  sortedFilter,
+  toggleDirection,
 } from "../store/productsSlice/productsSlice";
 
 export const useQueryParam = () => {
@@ -39,6 +41,14 @@ export const useQueryParam = () => {
     if (filter.maxprice) {
       params.maxprice = filter.maxprice;
     }
+    if (filter.sort) {
+      params.sort = filter.sort;
+    }
+    if (filter.direction) {
+      params.direction = filter.direction;
+    }
+
+    console.log("params: ", params);
 
     setSearchParams(params);
   }, [filter, setSearchParams]);
@@ -65,6 +75,12 @@ export const useQueryParam = () => {
         break;
       case "maxprice":
         dispatch(toggleMaxPrice(value));
+        break;
+      case "sort":
+        dispatch(sortedFilter(value));
+        break;
+      case "direction":
+        dispatch(toggleDirection(value));
         break;
       default:
         break;
