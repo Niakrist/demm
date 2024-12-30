@@ -1,0 +1,42 @@
+.delivery {
+  padding: 25px 0 80px;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #122952;
+}
+
+.subTitle {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  color: #122952;
+}
+
+.list {
+  list-style: disc;
+  padding-left: 40px;
+}
+
+.item {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #4d526c;
+}
+
+.text {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #4d526c;
+}

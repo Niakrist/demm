@@ -16,17 +16,17 @@ const HeaderTop = () => {
               </Link>
             </li>
             <li>
-              <Link className={styles.link} to="/">
+              <Link className={styles.link} to="/delivery-and-payment">
                 Оплата и доставка
               </Link>
             </li>
             <li>
-              <Link className={styles.link} to="/">
+              <Link className={styles.link} to="/shop">
                 Магазины
               </Link>
             </li>
             <li>
-              <Link className={styles.link} to="/">
+              <Link className={styles.link} to="/contacts">
                 Контакты
               </Link>
             </li>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import Container from "../../components/Container/Container";
@@ -10,14 +10,11 @@ import ProductList from "../../components/ProductList/ProductList";
 
 import styles from "./Catalog.module.css";
 import CatalogNav from "./CatalogNav/CatalogNav";
-import { useSearchParams } from "react-router-dom";
 import { fetchProducts } from "../../store/productsSlice/productsSlice";
 import { useQueryParam } from "../../hooks/useQueryParam";
 
 const Catalog = () => {
   const { products } = useSelector((state) => state.products);
-  const { categories } = useSelector((state) => state.categories);
-
   const dispatch = useDispatch();
 
   // const [URLSearchParams] = useSearchParams();
@@ -37,19 +34,21 @@ const Catalog = () => {
       <Header />
       <main>
         <Breadcrumbs />
-        <Container>
-          <h1 className={styles.title}>
-            Каталог
-            {/* {currentCategory ? categories?.[currentCategory] : "Каталог"} */}
-          </h1>
-          <CatalogNav />
-          <div className={styles.wrapper}>
-            <aside>
-              <Filter />
-            </aside>
-            <ProductList products={products} />
-          </div>
-        </Container>
+        <section className={styles.catalog}>
+          <Container>
+            <h1 className={styles.title}>
+              Каталог
+              {/* {currentCategory ? categories?.[currentCategory] : "Каталог"} */}
+            </h1>
+            <CatalogNav />
+            <div className={styles.wrapper}>
+              <aside>
+                <Filter />
+              </aside>
+              <ProductList products={products} />
+            </div>
+          </Container>
+        </section>
         <Feedback />
       </main>
       <Footer />

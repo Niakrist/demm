@@ -1,5 +1,9 @@
-.title {
+.section {
   padding-top: 25px;
+  padding-bottom: 80px;
+}
+
+.title {
   margin-bottom: 40px;
   font-weight: 500;
   font-size: 46px;
@@ -10,7 +14,6 @@
 }
 
 .cart {
-  padding-bottom: 80px;
   display: flex;
   column-gap: 24px;
   /* display: grid;

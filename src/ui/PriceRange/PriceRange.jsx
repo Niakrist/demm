@@ -5,11 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchPrice } from "../../store/priceSlice/priceSlice";
 import { useQueryParam } from "../../hooks/useQueryParam";
-import {
-  fetchProducts,
-  toggleMaxPrice,
-  toggleMinPrice,
-} from "../../store/productsSlice/productsSlice";
 
 const PriceRange = () => {
   const { prices } = useSelector((state) => state.prices);
@@ -92,7 +87,8 @@ const PriceRange = () => {
         <div style={{ left: `${minValue}%` }} className={styles.min}></div>
         <div
           style={{ left: `${minValue}%`, right: `${maxValue}%` }}
-          className={styles.line}></div>
+          className={styles.line}
+        ></div>
         <div style={{ right: `${maxValue}%` }} className={styles.max}></div>
       </div>
     </div>
