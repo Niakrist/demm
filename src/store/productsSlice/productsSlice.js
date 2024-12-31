@@ -53,7 +53,6 @@ const productsSlice = createSlice({
       state.page = 1;
     },
     toggleCollections: (state, action) => {
-      console.log("action.payload: ", action.payload);
       if (state.collection.includes(action.payload)) {
         state.collection = state.collection.filter((f) => f !== action.payload);
       } else {
@@ -123,10 +122,17 @@ const productsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
+        console.log("action: ", action.payload);
+
+        console.log("action: ", action.payload.paramsObj.collection);
         state.isLoading = false;
         state.products = action.payload.goods;
         state.page = action.payload.page;
         state.pages = action.payload.pages;
+
+        // state.collection = action.payload.paramsObj.collection
+        //   ? state.collection.push("VANITY")
+        //   : [];
 
         // state.products = action.payload.goods;
         // state.page = action.payload.paramsObj.page || action.payload.page;

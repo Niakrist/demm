@@ -26,7 +26,7 @@ const Filter = () => {
 
   return (
     <div className={styles.filter}>
-      <DropDown items={categoriesLists} type="category" name="Категория" />
+      {/* <DropDown items={categoriesLists} type="category" name="Категория" /> */}
       <DropDown items={collectionsList} type="collection" name="Коллекция" />
       <DropDown items={colorsList} type="color" name="Цвет" />
       <DropDown items={montageList} type="montage" name="Монтаж" />
@@ -34,10 +34,8 @@ const Filter = () => {
       <PriceRange />
       <button
         onClick={handleReset}
-        className={clsx(
-          styles.resetFilter,
-          !!searchParams.size && styles.show
-        )}>
+        className={clsx(styles.resetFilter, !!searchParams.size && styles.show)}
+      >
         Сбросить фильтры
       </button>
     </div>

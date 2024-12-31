@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation, useParams } from "react-router-dom";
 import Container from "../Container/Container";
@@ -13,7 +12,6 @@ const Breadcrumbs = () => {
   );
 
   const { productItem } = useSelector((state) => state.productItem);
-  console.log("productItem: ", productItem);
 
   const urlParams = new URLSearchParams(location?.search);
   const params = Object.fromEntries(urlParams);

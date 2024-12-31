@@ -5,6 +5,7 @@ import { fetchCollections } from "../store/collectionsSlice/collectionsSlice";
 import { fetchMontage } from "../store/montageSlice/montageSlice";
 import { fetchTypes } from "../store/typesSlice/typesSlice";
 import { transformObjectInArr } from "../utils/transformObjectInArr";
+import { fetchCategories } from "../store/categoriesSlice/categoriesSlice";
 
 export const useFilterParams = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ export const useFilterParams = () => {
 
   useEffect(() => {
     dispatch(fetchColors());
+    dispatch(fetchCategories());
     dispatch(fetchCollections());
     dispatch(fetchMontage());
     dispatch(fetchTypes());

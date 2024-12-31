@@ -25,7 +25,6 @@ export const useQueryParam = () => {
       params.category = filter.category.join(",");
     }
     if (filter.collection?.length > 0) {
-      console.log("filter.collection: ", filter.collection);
       params.collection = filter.collection.join(",");
     }
     if (filter.color?.length > 0) {
@@ -58,9 +57,9 @@ export const useQueryParam = () => {
 
   const updateQueryParams = (key, value) => {
     switch (key) {
-      case "category":
-        dispatch(toggleCategories(value));
-        break;
+      // case "category":
+      //   dispatch(toggleCategories(value));
+      //   break;
       case "collection":
         dispatch(toggleCollections(value));
         break;

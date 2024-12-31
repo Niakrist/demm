@@ -20,7 +20,8 @@ const DropDown = ({ items, name, type }) => {
         onClick={handleToggle}
         className={
           type !== "link" ? styles.dropDownBtn : styles.dropDownBtnSmall
-        }>
+        }
+      >
         {name}
         <Icon
           name="dropDownIcon"
@@ -31,7 +32,8 @@ const DropDown = ({ items, name, type }) => {
         />
       </button>
       <ul
-        className={clsx(styles.dropDownList, isOpenDropDown && styles.active)}>
+        className={clsx(styles.dropDownList, isOpenDropDown && styles.active)}
+      >
         {isOpenDropDown && (
           <>
             {type === "link"
@@ -39,7 +41,8 @@ const DropDown = ({ items, name, type }) => {
                   <li key={item.id} className={styles.dropDownItem}>
                     <Link
                       to={`/catalog/?category=${item.id}`}
-                      className={styles.dropDownLink}>
+                      className={styles.dropDownLink}
+                    >
                       {item.name}
                     </Link>
                   </li>
@@ -64,7 +67,8 @@ const DropDown = ({ items, name, type }) => {
                         className={clsx(
                           styles.textCheckbox,
                           filter[type].includes(item.id) && styles.activeText
-                        )}>
+                        )}
+                      >
                         {item.name}
                       </span>
                     </label>
