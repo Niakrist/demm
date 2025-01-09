@@ -36,9 +36,9 @@ export const useQueryParam = () => {
     if (filter.type?.length > 0) {
       params.type = filter.type.join(",");
     }
-    if (filter.page) {
-      params.page = filter.page;
-    }
+    // if (filter.page) {
+    //   params.page = filter.page;
+    // }
     if (filter.minprice) {
       params.minprice = filter.minprice;
     }
@@ -72,9 +72,9 @@ export const useQueryParam = () => {
       case "type":
         dispatch(toggleType(value));
         break;
-      case "page":
-        dispatch(togglePage(value));
-        break;
+      // case "page":
+      //   dispatch(togglePage(value));
+      //   break;
       case "minprice":
         dispatch(toggleMinPrice(value));
         break;

@@ -13,12 +13,12 @@ export const fetchProducts = createAsyncThunk(
           : `http://localhost:3024/api/goods/?${params.toString()}`
       );
 
-      const paramsObj = Object.fromEntries(params);
+      // const paramsObj = Object.fromEntries(params);
 
-      console.log("paramsObj: ", paramsObj);
+      // console.log("paramsObj: ", paramsObj);
 
       const data = await response.json();
-      return { ...data, paramsObj };
+      return data;
     } catch (error) {
       console.log(error);
     }
@@ -122,9 +122,9 @@ const productsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        console.log("action: ", action.payload);
+        // console.log("action: ", action.payload);
 
-        console.log("action: ", action.payload.paramsObj.collection);
+        // console.log("action: ", action.payload.paramsObj.collection);
         state.isLoading = false;
         state.products = action.payload.goods;
         state.page = action.payload.page;
