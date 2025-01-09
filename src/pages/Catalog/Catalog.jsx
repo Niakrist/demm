@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import Container from "../../components/Container/Container";
@@ -11,23 +11,26 @@ import ProductList from "../../components/ProductList/ProductList";
 import styles from "./Catalog.module.css";
 import CatalogNav from "./CatalogNav/CatalogNav";
 import { fetchProducts } from "../../store/productsSlice/productsSlice";
-import { useQueryParam } from "../../hooks/useQueryParam";
+import { useLocation, useParams } from "react-router-dom";
 
 const Catalog = () => {
   const { products } = useSelector((state) => state.products);
+  const { categories, isLoading, error } = useSelector(
+    (state) => state.categories
+  );
   const dispatch = useDispatch();
 
-  // const [URLSearchParams] = useSearchParams();
-  // const currentCategory = URLSearchParams.get("category");
-  // const page = URLSearchParams.get("page");
-
-  // const params = currentCategory ? { category: currentCategory } : "";
-
-  const { searchParams } = useQueryParam();
+  const params = useParams();
+  const loaction = useLocation();
 
   useEffect(() => {
-    dispatch(fetchProducts(searchParams));
-  }, [dispatch, searchParams]);
+    dispatch(fetchProducts(loaction.search));
+  }, [dispatch, loaction, params]);
+
+  const urlParams = new URLSearchParams(location?.search);
+  const urlCategory = Object.fromEntries(urlParams);
+
+  if (isLoading) return;
 
   return (
     <>
@@ -37,8 +40,9 @@ const Catalog = () => {
         <section className={styles.catalog}>
           <Container>
             <h1 className={styles.title}>
-              Каталог
-              {/* {currentCategory ? categories?.[currentCategory] : "Каталог"} */}
+              {urlCategory?.category
+                ? categories?.[urlCategory?.category]
+                : "Каталог"}
             </h1>
             <CatalogNav />
             <div className={styles.wrapper}>

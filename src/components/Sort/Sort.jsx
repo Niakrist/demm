@@ -1,17 +1,26 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { useQueryParam } from "../../hooks/useQueryParam";
 import styles from "./Sort.module.css";
 
 const Sort = () => {
-  const { sort, direction } = useSelector((state) => state.products);
+  // const { direction } = useSelector((state) => state.products);
 
-  const { updateQueryParams, filter, searchParams } = useQueryParam();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const urlParams = new URLSearchParams(location?.search);
+  const params = Object.fromEntries(urlParams);
+  const direction = params?.direction || "default";
 
   const handleChange = ({ target }) => {
-    if (target.value !== "Сортировка") {
-      updateQueryParams("sort", "price");
-      updateQueryParams("direction", target.value);
+    if (target.value !== "default") {
+      const currentParams = new URLSearchParams(searchParams);
+      currentParams.set("sort", "price");
+      currentParams.set("direction", target.value);
+      navigate({ search: currentParams.toString() });
     }
   };
 
@@ -30,9 +39,6 @@ const Sort = () => {
         <label className={styles.label} htmlFor="hit">
           Хиты продаж
         </label>
-        {/* <button className={clsx(styles.new, styles.active)}></button>
-        <button className={styles.stock}></button>
-        <button className={styles.hit}></button> */}
       </div>
 
       <select
@@ -40,9 +46,8 @@ const Sort = () => {
         onChange={handleChange}
         className={styles.select}
         name=""
-        id=""
-      >
-        <option disabled value={""}>
+        id="">
+        <option disabled value="default">
           Сортировка
         </option>
         <option value="up">По возрастанию</option>

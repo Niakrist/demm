@@ -6,10 +6,6 @@ import { fetchCategories } from "../../../store/categoriesSlice/categoriesSlice"
 
 const CatalogNav = () => {
   const dispatch = useDispatch();
-  const { categories } = useSelector((state) => state.categories);
-  useEffect(() => {
-    dispatch(fetchCategories());
-  }, [dispatch]);
 
   const catalogsNav = [
     {

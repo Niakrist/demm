@@ -12,6 +12,7 @@ import priceSlice from "./priceSlice/priceSlice";
 import modalSlice from "./modalSlice/modalSlice";
 import searchSlice from "./searchSlice/searchSlice";
 import orderDataSlice from "./orderDataSlice/orderDataSlice";
+import filterSlice from "./filterSlice/filterSlice";
 
 export const store = configureStore({
   reducer: {
@@ -28,5 +29,6 @@ export const store = configureStore({
     isModal: modalSlice,
     search: searchSlice,
     order: orderDataSlice,
+    filter: filterSlice,
   },
 });

@@ -7,6 +7,7 @@
   color: #797d91;
   transition: color 0.2s, opacity 0.2s;
   position: relative;
+  margin-bottom: 50px;
 }
 
 .show {
