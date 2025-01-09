@@ -67,29 +67,31 @@ const Cart = () => {
       <Header />
       <main>
         <Breadcrumbs />
-        <Container>
-          <h1 className={styles.title}>Корзина</h1>
-          <div className={styles.cart}>
-            {!inCart.length ? (
-              <h2 className={styles.titleSecondary}>В корзине нет товаров</h2>
-            ) : (
-              <CartList inCart={inCart} />
-            )}
-            <CartTotal
-              costumerInfo={costumerInfo}
-              onChange={handleChangeCheck}
+        <section className={styles.section}>
+          <Container>
+            <h1 className={styles.title}>Корзина</h1>
+            <div className={styles.cart}>
+              {!inCart.length ? (
+                <h2 className={styles.titleSecondary}>В корзине нет товаров</h2>
+              ) : (
+                <CartList inCart={inCart} />
+              )}
+              <CartTotal
+                costumerInfo={costumerInfo}
+                onChange={handleChangeCheck}
+                inCart={inCart}
+                errors={validationErrors}
+              />
+            </div>
+            <Delivery
               inCart={inCart}
+              costumerInfo={costumerInfo}
+              onChange={handleChangeInput}
+              handleSubmit={handleSubmit}
               errors={validationErrors}
             />
-          </div>
-          <Delivery
-            inCart={inCart}
-            costumerInfo={costumerInfo}
-            onChange={handleChangeInput}
-            handleSubmit={handleSubmit}
-            errors={validationErrors}
-          />
-        </Container>
+          </Container>
+        </section>
       </main>
 
       <Footer />

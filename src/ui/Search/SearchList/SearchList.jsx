@@ -23,9 +23,9 @@ const SearchList = () => {
           ))}
         </ul>
       )}
-      <Button className={styles.btn}>
+      {/* <Button className={styles.btn}>
         Все результаты <Icon name="iconArrow" className={styles.iconArrow} />
-      </Button>
+      </Button> */}
     </>
   );
 };

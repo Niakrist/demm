@@ -11,6 +11,7 @@ import {
   toggleType,
   sortedFilter,
   toggleDirection,
+  togglePage,
 } from "../store/productsSlice/productsSlice";
 
 export const useQueryParam = () => {
@@ -35,6 +36,9 @@ export const useQueryParam = () => {
     if (filter.type?.length > 0) {
       params.type = filter.type.join(",");
     }
+    if (filter.page) {
+      params.page = filter.page;
+    }
     if (filter.minprice) {
       params.minprice = filter.minprice;
     }
@@ -48,16 +52,14 @@ export const useQueryParam = () => {
       params.direction = filter.direction;
     }
 
-    console.log("params: ", params);
-
     setSearchParams(params);
   }, [filter, setSearchParams]);
 
   const updateQueryParams = (key, value) => {
     switch (key) {
-      case "category":
-        dispatch(toggleCategories(value));
-        break;
+      // case "category":
+      //   dispatch(toggleCategories(value));
+      //   break;
       case "collection":
         dispatch(toggleCollections(value));
         break;
@@ -69,6 +71,9 @@ export const useQueryParam = () => {
         break;
       case "type":
         dispatch(toggleType(value));
+        break;
+      case "page":
+        dispatch(togglePage(value));
         break;
       case "minprice":
         dispatch(toggleMinPrice(value));

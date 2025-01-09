@@ -1,4 +1,4 @@
-import Button from "../../ui/Button/Button";
+import { Link } from "react-router-dom";
 import Container from "../Container/Container";
 import Icon from "../Icon/Icon";
 import styles from "./AboutCompany.module.css";
@@ -37,9 +37,9 @@ const AboutCompany = () => {
           душевых кабин. Изготавливаем продукцию в очень короткие сроки. Мы
           динамичны, дружелюбны и всегда рады сотрудничеству!
         </p>
-        <Button className={styles.btn}>
+        <Link className={styles.btn} to="/about">
           Подробнее <Icon name="iconArrow" className={styles.iconArrow} />
-        </Button>
+        </Link>
       </Container>
     </section>
   );

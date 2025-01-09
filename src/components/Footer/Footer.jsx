@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import Modal from "../Modal/Modal";
 import OrderModal from "../OrderModal/OrderModal";
 import ModalByNow from "../ModalByNow/ModalByNow";
+import { transformObjectInArr } from "../../utils/transformObjectInArr";
 
 const Footer = () => {
   const [isActiveInput, setIsActiveInput] = useState(false);
@@ -21,6 +22,10 @@ const Footer = () => {
   const { isShowModal, isOrderModal, isModalByNow } = useSelector(
     (state) => state.isModal
   );
+
+  const { categories } = useSelector((state) => state.categories);
+
+  const categoriesList = transformObjectInArr(categories);
 
   const handleFocus = () => {
     setIsActiveInput(true);
@@ -30,6 +35,8 @@ const Footer = () => {
   };
 
   const { isMenu } = useSelector((state) => state.menu);
+
+  if (!categories) return;
 
   return (
     <footer>
@@ -45,27 +52,42 @@ const Footer = () => {
               <h3 className={styles.title}>Каталог</h3>
               <ul className={styles.list}>
                 <li className={styles.itemNav}>
-                  <Link className={styles.linkNav} to="/">
+                  <Link
+                    className={styles.linkNav}
+                    to={`/catalog/?category=${categoriesList[0].id}`}
+                  >
                     Смесители
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
-                  <Link className={styles.linkNav} to="/">
+                  <Link
+                    className={styles.linkNav}
+                    to={`/catalog/?category=${categoriesList[1].id}`}
+                  >
                     Душевые системы
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
-                  <Link className={styles.linkNav} to="/">
+                  <Link
+                    className={styles.linkNav}
+                    to={`/catalog/?category=${categoriesList[2].id}`}
+                  >
                     Душевые стойки
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
-                  <Link className={styles.linkNav} to="/">
+                  <Link
+                    className={styles.linkNav}
+                    to={`/catalog/?category=${categoriesList[3].id}`}
+                  >
                     Изливы
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
-                  <Link className={styles.linkNav} to="/">
+                  <Link
+                    className={styles.linkNav}
+                    to={`/catalog/?category=${categoriesList[4].id}`}
+                  >
                     Аксессуары
                   </Link>
                 </li>
@@ -80,22 +102,22 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
-                  <Link className={styles.linkNav} to="/">
+                  <Link className={styles.linkNav} to="/about">
                     О компании
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
-                  <Link className={styles.linkNav} to="/">
+                  <Link className={styles.linkNav} to="/delivery-and-payment">
                     Оплата и доставка
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
-                  <Link className={styles.linkNav} to="/">
+                  <Link className={styles.linkNav} to="/shop">
                     Магазины
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
-                  <Link className={styles.linkNav} to="/">
+                  <Link className={styles.linkNav} to="/contacts">
                     Контакты
                   </Link>
                 </li>
@@ -111,7 +133,8 @@ const Footer = () => {
                   className={clsx(
                     styles.form,
                     isActiveInput && styles.formActive
-                  )}>
+                  )}
+                >
                   <label className={styles.label}>
                     <input
                       className={styles.input}
