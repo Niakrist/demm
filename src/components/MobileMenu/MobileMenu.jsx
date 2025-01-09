@@ -12,13 +12,18 @@ import DropDown from "../../ui/DropDown/DropDown";
 
 import { useSelector } from "react-redux";
 import { useFilterParams } from "../../hooks/useFilterParams";
+import { transformObjectInArr } from "../../utils/transformObjectInArr";
 
 const MobileMenu = () => {
-  const { categoriesLists } = useFilterParams();
-
-  if (!categoriesLists) return;
+  // const { categoriesLists } = useFilterParams();
+  // console.log("categoriesLists: ", categoriesLists);
 
   const { inCart } = useSelector((state) => state.cart);
+  const { categories } = useSelector((state) => state.categories);
+
+  if (!categories) return;
+
+  const categoriesLists = transformObjectInArr(categories);
 
   return (
     <section className={styles.wrapper}>

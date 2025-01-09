@@ -9,7 +9,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchCategories());
-  }, [dispatch]);
+  }, []);
 
   const getDeliveryDate = () => {
     const data = new Date();
