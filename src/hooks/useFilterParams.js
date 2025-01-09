@@ -18,19 +18,30 @@ export const useFilterParams = () => {
 
   useEffect(() => {
     dispatch(fetchColors());
+  }, []);
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, []);
+  useEffect(() => {
     dispatch(fetchCollections());
+  }, []);
+  useEffect(() => {
     dispatch(fetchMontage());
+  }, []);
+  useEffect(() => {
     dispatch(fetchTypes());
-  }, [dispatch]);
+  }, []);
 
-  if (!categories) return;
+  // if (!categories) return;
 
+  const categoriesLists = transformObjectInArr(categories);
   const colorsList = transformObjectInArr(colors);
-  const collectionsList = transformObjectInArr(collections);
+  // const collectionsList = transformObjectInArr(collections);
   const montageList = transformObjectInArr(montage);
   const typesList = transformObjectInArr(types);
 
   return {
+    categoriesLists,
     colorsList,
     collectionsList,
     montageList,

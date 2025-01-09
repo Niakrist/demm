@@ -34,13 +34,12 @@ const Breadcrumbs = () => {
             </Link>
           </li>
         )}
-        {location.search.includes("category") && (
+        {params?.category && (
           <li className={styles.item}>
             <Link
-              to={`/catalog?/category=${params.category}`}
-              className={styles.link}
-            >
-              {categories[params.category]}
+              to={`/catalog?category=${params?.category}`}
+              className={styles.link}>
+              {categories?.[params?.category]}
             </Link>
           </li>
         )}
@@ -48,9 +47,8 @@ const Breadcrumbs = () => {
           <>
             <li className={styles.item}>
               <Link
-                to={`/catalog?/category=${productItem.category}`}
-                className={styles.link}
-              >
+                to={`/catalog?category=${productItem.category}`}
+                className={styles.link}>
                 {productItem.categoryRus}
               </Link>
             </li>
