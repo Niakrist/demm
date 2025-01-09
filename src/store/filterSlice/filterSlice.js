@@ -5,6 +5,8 @@ const initialState = {
   colorParams: [],
   montageParams: [],
   typeParams: [],
+  min: 0,
+  max: 0,
 };
 
 export const filterSlice = createSlice({
@@ -22,7 +24,6 @@ export const filterSlice = createSlice({
         : [...state.colorParams, action.payload];
     },
     toggleMontageParams: (state, action) => {
-      console.log("action: ", action);
       state.montageParams = state.montageParams.includes(action.payload)
         ? state.montageParams.filter((param) => param !== action.payload)
         : [...state.montageParams, action.payload];
@@ -32,6 +33,21 @@ export const filterSlice = createSlice({
         ? state.typeParams.filter((param) => param !== action.payload)
         : [...state.typeParams, action.payload];
     },
+    changeMinPrice: (state, action) => {
+      state.min = Number(action.payload);
+    },
+    changeMaxPrice: (state, action) => {
+      console.log(action);
+      state.max = Number(action.payload);
+    },
+    resetFilter: (state, action) => {
+      state.collectionParams = [];
+      state.colorParams = [];
+      state.montageParams = [];
+      state.typeParams = [];
+      state.min = 0;
+      state.max = 0;
+    },
   },
 });
 
@@ -40,6 +56,9 @@ export const {
   toggleColorParams,
   toggleMontageParams,
   toggleTypeParams,
+  changeMinPrice,
+  changeMaxPrice,
+  resetFilter,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

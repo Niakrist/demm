@@ -5,12 +5,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchPrice } from "../../store/priceSlice/priceSlice";
 import { useQueryParam } from "../../hooks/useQueryParam";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import {
+  changeMaxPrice,
+  changeMinPrice,
+  resetFilter,
+} from "../../store/filterSlice/filterSlice";
 
 const PriceRange = () => {
   const { prices } = useSelector((state) => state.prices);
+  const { min, max } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
-  const { updateQueryParams, filter, searchParams } = useQueryParam();
+  // const { updateQueryParams, filter, searchParams } = useQueryParam();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchPrice());
@@ -21,19 +30,24 @@ const PriceRange = () => {
   const minPrice = pricesArr[0];
   const maxPrice = pricesArr.at(-1);
 
-  const [min, setMin] = useState("0");
-  const [max, setMax] = useState("0");
+  // const [min, setMin] = useState("0");
+  // const [max, setMax] = useState("0");
 
   useEffect(() => {
     if (minPrice !== undefined && maxPrice !== undefined) {
-      setMin(minPrice);
-      setMax(maxPrice);
+      dispatch(changeMinPrice(minPrice));
+      dispatch(changeMaxPrice(maxPrice));
+      // setMin(minPrice);
+      // setMax(maxPrice);
+      dispatch;
     }
   }, [minPrice, maxPrice]);
 
   if (!maxPrice) return;
 
   const handleMinChange = (e) => {
+    const currentParams = new URLSearchParams(searchParams);
+
     let currentMin = e.target.value;
     if (Number(currentMin) < minPrice) {
       currentMin = Number(minPrice);
@@ -41,11 +55,14 @@ const PriceRange = () => {
     if (currentMin >= Number(max)) {
       currentMin = Number(max) - 1;
     }
-    setMin(currentMin);
-    updateQueryParams("minprice", currentMin);
+    // setMin(currentMin);
+    dispatch(changeMinPrice(currentMin));
+    currentParams.set("minprice", currentMin);
+    navigate({ search: currentParams.toString() });
   };
 
   const handleMaxChange = (e) => {
+    const currentParams = new URLSearchParams(searchParams);
     let currentMax = e.target.value;
     if (Number(currentMax) < Number(min)) {
       currentMax = Number(min) + 1;
@@ -53,8 +70,10 @@ const PriceRange = () => {
     if (Number(currentMax) > maxPrice) {
       currentMax = maxPrice;
     }
-    setMax(currentMax);
-    updateQueryParams("maxprice", currentMax);
+    // setMax(currentMax);
+    dispatch(changeMaxPrice(currentMax));
+    currentParams.set("maxprice", currentMax);
+    navigate({ search: currentParams.toString() });
   };
 
   const calcValue = (min, max) => {
@@ -87,8 +106,7 @@ const PriceRange = () => {
         <div style={{ left: `${minValue}%` }} className={styles.min}></div>
         <div
           style={{ left: `${minValue}%`, right: `${maxValue}%` }}
-          className={styles.line}
-        ></div>
+          className={styles.line}></div>
         <div style={{ right: `${maxValue}%` }} className={styles.max}></div>
       </div>
     </div>

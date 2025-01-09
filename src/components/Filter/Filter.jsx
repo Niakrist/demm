@@ -13,9 +13,12 @@ import {
   toggleColorParams,
   toggleMontageParams,
   toggleTypeParams,
+  resetFilter,
+  changeMinPrice,
+  changeMaxPrice,
 } from "../../store/filterSlice/filterSlice";
 import { fetchMontage } from "../../store/montageSlice/montageSlice";
-import { resetFilter } from "../../store/productsSlice/productsSlice";
+import { fetchPrice } from "../../store/priceSlice/priceSlice";
 import { fetchTypes } from "../../store/typesSlice/typesSlice";
 import DropDown from "../../ui/DropDown/DropDown";
 import PriceRange from "../../ui/PriceRange/PriceRange";
@@ -32,24 +35,25 @@ const Filter = () => {
   const { colors } = useSelector((state) => state.colors);
   const { montage } = useSelector((state) => state.montage);
   const { types } = useSelector((state) => state.types);
+  const { prices } = useSelector((state) => state.prices);
 
   const { collectionParams, colorParams, montageParams, typeParams } =
     useSelector((state) => state.filter);
 
-  // const [colorParams, setColorParams] = useState([]);
-
-  console.log("montageParams: ", montageParams);
+  const pricesArr = prices.map((item) => parseInt(item)).sort((a, b) => a - b);
+  const minPrice = pricesArr[0];
+  const maxPrice = pricesArr.at(-1);
 
   useEffect(() => {
     dispatch(fetchCollections());
     dispatch(fetchColors());
     dispatch(fetchMontage());
     dispatch(fetchTypes());
+    dispatch(fetchPrice());
   }, [dispatch]);
 
+  const currentParams = new URLSearchParams(searchParams);
   useEffect(() => {
-    const currentParams = new URLSearchParams(searchParams);
-
     if (collectionParams.length > 0) {
       currentParams.set("collection", collectionParams.join(","));
     } else {
@@ -61,14 +65,12 @@ const Filter = () => {
       currentParams.delete("color");
     }
     if (montageParams.length > 0) {
-      console.log("++++");
       currentParams.set("montage", montageParams.join(","));
     } else {
-      console.log("----");
       currentParams.delete("montage");
     }
     if (typeParams.length > 0) {
-      currentParams.set("type", typeParams, join(","));
+      currentParams.set("type", typeParams.join(","));
     } else {
       currentParams.delete("type");
     }
@@ -80,6 +82,8 @@ const Filter = () => {
     typeParams,
     navigate,
     searchParams,
+    minPrice,
+    maxPrice,
   ]);
 
   const handleToggleCollectionParams = (item) => {
@@ -105,6 +109,11 @@ const Filter = () => {
 
   const handleReset = () => {
     dispatch(resetFilter());
+    dispatch(changeMinPrice(minPrice));
+    dispatch(changeMaxPrice(maxPrice));
+    currentParams.delete("minprice");
+    currentParams.delete("maxprice");
+    navigate({ search: currentParams.toString() });
   };
 
   return (
@@ -138,12 +147,12 @@ const Filter = () => {
         type="type"
         name="Тип"
       />
-      {/*<PriceRange /> */}
+      <PriceRange />
       <button
         onClick={handleReset}
         className={clsx(
-          styles.resetFilter
-          // !!searchParams.size && styles.show
+          styles.resetFilter,
+          !!searchParams.size && styles.show
         )}>
         Сбросить фильтры
       </button>
