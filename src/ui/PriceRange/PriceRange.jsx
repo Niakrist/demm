@@ -1,15 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
 import styles from "./PriceRange.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchPrice } from "../../store/priceSlice/priceSlice";
 import { useQueryParam } from "../../hooks/useQueryParam";
-import {
-  fetchProducts,
-  toggleMaxPrice,
-  toggleMinPrice,
-} from "../../store/productsSlice/productsSlice";
 
 const PriceRange = () => {
   const { prices } = useSelector((state) => state.prices);

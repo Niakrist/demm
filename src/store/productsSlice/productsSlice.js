@@ -86,6 +86,8 @@ const productsSlice = createSlice({
       state.type = [];
       state.minprice = null;
       state.maxprice = null;
+      state.sort = "";
+      state.direction = "";
     },
     sortedFilter: (state, action) => {
       state.sort = action.payload;
