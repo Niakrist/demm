@@ -1,8 +1,10 @@
 import Address from "./icons/Address";
 import CartIcon from "./icons/CartIcon";
+import CategoryIcon from "./icons/CategoryIcon";
 import CheckboxFilter from "./icons/CheckboxFilter";
 import CheckboxIcon from "./icons/CheckboxIcon";
 import DropDownIcon from "./icons/DropDownIcon";
+import FilterIcon from "./icons/FilterIcon";
 import IconArrow from "./icons/IconArrow";
 import LogoIcon from "./icons/LogoIcon";
 import PresenceNo from "./icons/PresenceNo";
@@ -27,6 +29,8 @@ const Icon = ({ name, className }) => {
     presenceYes: <PresenceYes className={className} />,
     presenceNo: <PresenceNo className={className} />,
     checkboxFilter: <CheckboxFilter className={className} />,
+    categoryIcon: <CategoryIcon className={className} />,
+    filterIcon: <FilterIcon className={className} />,
   };
 
   return icons[name];

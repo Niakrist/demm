@@ -1,4 +1,5 @@
 import React from "react";
+import Filter from "../Filter/Filter";
 import Pagination from "../Pagination/Pagination";
 import Sort from "../Sort/Sort";
 import ProductCard from "./ProductCard/ProductCard";

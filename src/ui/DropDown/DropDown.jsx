@@ -36,7 +36,8 @@ const DropDown = ({ items, params, onToggleParams, name, type }) => {
         className={
           type !== "link" ? styles.dropDownBtn : styles.dropDownBtnSmall
         }>
-        {name}
+        <span>{name}</span>
+
         <Icon
           name="dropDownIcon"
           className={clsx(

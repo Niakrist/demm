@@ -11,6 +11,10 @@
   gap: 10px;
 }
 
+.hidden {
+  display: none;
+}
+
 .input {
   display: none;
   position: absolute;
@@ -49,10 +53,24 @@
   cursor: pointer;
 }
 
+.resetFilter {
+  display: none;
+}
+
 @media (max-width: 1279px) {
   .sort {
     flex-direction: column;
+    align-items: flex-start;
     row-gap: 15px;
+  }
+  .buttonWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .resetFilter {
+    display: block;
   }
 }
 
@@ -62,6 +80,7 @@
   }
   .label {
     font-size: 12px;
+    padding: 7px 15px;
   }
 
   .select {

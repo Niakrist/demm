@@ -4,7 +4,7 @@ import styles from "./PriceRange.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchPrice } from "../../store/priceSlice/priceSlice";
-import { useQueryParam } from "../../hooks/useQueryParam";
+
 import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   changeMaxPrice,

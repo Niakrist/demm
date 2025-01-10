@@ -1,7 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import { useQueryParam } from "../../hooks/useQueryParam";
+
+import DropDown from "../../ui/DropDown/DropDown";
+import FilterButton from "../../ui/FilterButton/FilterButton";
+import ResetFilter from "../../ui/ResetFilter/ResetFilter";
+import Filter from "../Filter/Filter";
 import styles from "./Sort.module.css";
 
 const Sort = () => {
@@ -27,6 +31,7 @@ const Sort = () => {
   return (
     <div className={styles.sort}>
       <div className={styles.sortBtnsGroup}>
+        <FilterButton />
         <input className={styles.input} id="new" type="checkbox" />
         <label className={styles.label} htmlFor="new">
           Новинки
@@ -40,19 +45,23 @@ const Sort = () => {
           Хиты продаж
         </label>
       </div>
-
-      <select
-        value={direction}
-        onChange={handleChange}
-        className={styles.select}
-        name=""
-        id="">
-        <option disabled value="default">
-          Сортировка
-        </option>
-        <option value="up">По возрастанию</option>
-        <option value="down">По убыванию</option>
-      </select>
+      <div className={styles.buttonWrapper}>
+        <div className={styles.resetFilter}>
+          <ResetFilter />
+        </div>
+        <select
+          value={direction}
+          onChange={handleChange}
+          className={styles.select}
+          name=""
+          id="">
+          <option disabled value="default">
+            Сортировка
+          </option>
+          <option value="up">По возрастанию</option>
+          <option value="down">По убыванию</option>
+        </select>
+      </div>
     </div>
   );
 };

@@ -5,7 +5,6 @@ import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useFilterParams } from "../../hooks/useFilterParams";
-import { useQueryParam } from "../../hooks/useQueryParam";
 import { fetchCollections } from "../../store/collectionsSlice/collectionsSlice";
 import { fetchColors } from "../../store/colorsSLice/colorsSlice";
 import {
@@ -17,16 +16,18 @@ import {
   changeMinPrice,
   changeMaxPrice,
 } from "../../store/filterSlice/filterSlice";
+import { toggleFilterModal } from "../../store/modalSlice/modalSlice";
 import { fetchMontage } from "../../store/montageSlice/montageSlice";
 import { fetchPrice } from "../../store/priceSlice/priceSlice";
 import { fetchTypes } from "../../store/typesSlice/typesSlice";
 import DropDown from "../../ui/DropDown/DropDown";
 import PriceRange from "../../ui/PriceRange/PriceRange";
+import ResetFilter from "../../ui/ResetFilter/ResetFilter";
 import { clsx } from "../../utils/clsx";
 import { transformObjectInArr } from "../../utils/transformObjectInArr";
 import styles from "./Filter.module.css";
 
-const Filter = () => {
+const Filter = ({ mobile }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -107,6 +108,10 @@ const Filter = () => {
     dispatch(toggleTypeParams(item));
   };
 
+  const handleClose = () => {
+    dispatch(toggleFilterModal(false));
+  };
+
   if (!collections) return;
 
   const collectionsList = transformObjectInArr(collections);
@@ -114,18 +119,19 @@ const Filter = () => {
   const montageList = transformObjectInArr(montage);
   const typesList = transformObjectInArr(types);
 
-  const handleReset = useCallback(() => {
-    const currentParams = new URLSearchParams(searchParams);
-    dispatch(resetFilter());
-    dispatch(changeMinPrice(minPrice));
-    dispatch(changeMaxPrice(maxPrice));
-    navigate({ search: currentParams.toString() });
-  }, [dispatch, minPrice, maxPrice, navigate, searchParams]);
+  // const handleReset = () => {
+  //   const currentParams = new URLSearchParams(searchParams);
+  //   dispatch(resetFilter());
+  //   dispatch(changeMinPrice(minPrice));
+  //   dispatch(changeMaxPrice(maxPrice));
+  //   navigate({ search: currentParams.toString() });
+  // };
 
   return (
-    <div className={styles.filter}>
+    <div className={clsx(styles.filter)}>
       {/* <DropDown items={categoriesLists} type="category" name="Категория" /> */}
       <DropDown
+        className={styles.dropDown}
         items={collectionsList}
         params={collectionParams}
         onToggleParams={handleToggleCollectionParams}
@@ -133,6 +139,7 @@ const Filter = () => {
         name="Коллекция"
       />
       <DropDown
+        className={styles.dropDown}
         items={colorsList}
         params={colorParams}
         onToggleParams={handleToggleColorParams}
@@ -140,6 +147,7 @@ const Filter = () => {
         name="Цвет"
       />
       <DropDown
+        className={styles.dropDown}
         items={montageList}
         params={montageParams}
         onToggleParams={handleToggleMontageParams}
@@ -147,6 +155,7 @@ const Filter = () => {
         name="Монтаж"
       />
       <DropDown
+        className={styles.dropDown}
         items={typesList}
         params={typeParams}
         onToggleParams={handleToggleTypeParams}
@@ -154,14 +163,19 @@ const Filter = () => {
         name="Тип"
       />
       <PriceRange />
-      <button
-        onClick={handleReset}
-        className={clsx(
-          styles.resetFilter,
-          !!searchParams.size && styles.show
-        )}>
-        Сбросить фильтры
-      </button>
+      <div className={styles.buttonWrapper}>
+        <ResetFilter />
+        {mobile && (
+          <button
+            onClick={handleClose}
+            className={clsx(
+              styles.buttonApply,
+              !!searchParams.size && styles.show
+            )}>
+            Применить
+          </button>
+        )}
+      </div>
     </div>
   );
 };

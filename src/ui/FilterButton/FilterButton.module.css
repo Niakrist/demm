@@ -1,0 +1,43 @@
+.button {
+  display: none;
+}
+@media (max-width: 1279px) {
+  .button {
+    padding: 10px 20px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    background-color: #213f74;
+    border-radius: 50px;
+    transition: background-color 0.2s;
+  }
+
+  .button:hover {
+    background-color: #002d79;
+  }
+
+  .categoryIcon {
+    min-width: 12px;
+    min-height: 10px;
+  }
+
+  .iconArrow {
+    transform: rotate(90deg);
+    min-width: 6px;
+    min-height: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .button {
+    font-size: 12px;
+    padding: 7px 15px;
+  }
+}

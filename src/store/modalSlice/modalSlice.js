@@ -6,6 +6,7 @@ const modalSlice = createSlice({
     isShowModal: false,
     isOrderModal: false,
     isModalByNow: false,
+    isFilterModal: false,
   },
   reducers: {
     toggleModal: (state, action) => {
@@ -17,10 +18,17 @@ const modalSlice = createSlice({
     toggleModalByNow: (state, action) => {
       state.isModalByNow = action.payload;
     },
+    toggleFilterModal: (state, action) => {
+      state.isFilterModal = action.payload;
+    },
   },
 });
 
-export const { toggleModal, toggleOrderModal, toggleModalByNow } =
-  modalSlice.actions;
+export const {
+  toggleModal,
+  toggleOrderModal,
+  toggleModalByNow,
+  toggleFilterModal,
+} = modalSlice.actions;
 
 export default modalSlice.reducer;

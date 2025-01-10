@@ -12,10 +12,17 @@
   background-color: #fff;
 }
 
+.hidden {
+  display: none;
+}
+
 @media (max-width: 1279px) {
   .list {
     grid-template-columns: repeat(2, minmax(354px, 100%));
     gap: 20px;
+  }
+  .hidden {
+    display: block;
   }
 }
 
