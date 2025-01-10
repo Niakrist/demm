@@ -55,8 +55,6 @@ const Filter = ({ mobile }) => {
     dispatch(fetchPrice());
   }, [dispatch]);
 
-  //потом удалить, если не поможет
-  // const currentParams = new URLSearchParams(searchParams);
   useEffect(() => {
     if (isFirstRender) {
       setIsFirstRender(false);
@@ -103,22 +101,7 @@ const Filter = ({ mobile }) => {
   ]);
 
   const handleToggleCollectionParams = (item) => {
-    // let collectionParams = [];
-    // if (currentParams.has("collection")) {
-    //   collectionParams = currentParams.get("collection").split(",");
-    // }
-    // collectionParams.push(item);
-
-    // if (collectionParams.length > 0) {
-    //   currentParams.set("collection", collectionParams.join(","));
-    // } else {
-    //   currentParams.delete("collection");
-    // }
-
-    // ("http://localhost:5173/catalog?collection=METRICA%2CABSOLUTE");
     dispatch(toggleCollectionParams(item));
-
-    // navigate({ search: currentParams.toString() });
   };
 
   const handleToggleColorParams = (item) => {
