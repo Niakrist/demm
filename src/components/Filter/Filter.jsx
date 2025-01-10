@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useMemo } from "react";
@@ -37,7 +37,7 @@ const Filter = () => {
   const { types } = useSelector((state) => state.types);
   const { prices } = useSelector((state) => state.prices);
 
-  const { collectionParams, colorParams, montageParams, typeParams } =
+  const { collectionParams, colorParams, montageParams, typeParams, min, max } =
     useSelector((state) => state.filter);
 
   const pricesArr = prices.map((item) => parseInt(item)).sort((a, b) => a - b);
@@ -52,8 +52,8 @@ const Filter = () => {
     dispatch(fetchPrice());
   }, [dispatch]);
 
-  const currentParams = new URLSearchParams(searchParams);
   useEffect(() => {
+    const currentParams = new URLSearchParams(searchParams);
     if (collectionParams.length > 0) {
       currentParams.set("collection", collectionParams.join(","));
     } else {
@@ -74,6 +74,13 @@ const Filter = () => {
     } else {
       currentParams.delete("type");
     }
+    if (min === minPrice) {
+      currentParams.delete("minprice");
+    }
+    if (max === maxPrice) {
+      currentParams.delete("maxprice");
+    }
+
     navigate({ search: currentParams.toString() });
   }, [
     collectionParams,
@@ -107,14 +114,13 @@ const Filter = () => {
   const montageList = transformObjectInArr(montage);
   const typesList = transformObjectInArr(types);
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
+    const currentParams = new URLSearchParams(searchParams);
     dispatch(resetFilter());
     dispatch(changeMinPrice(minPrice));
     dispatch(changeMaxPrice(maxPrice));
-    currentParams.delete("minprice");
-    currentParams.delete("maxprice");
     navigate({ search: currentParams.toString() });
-  };
+  }, [dispatch, minPrice, maxPrice, navigate, searchParams]);
 
   return (
     <div className={styles.filter}>

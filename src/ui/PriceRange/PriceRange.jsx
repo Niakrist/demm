@@ -17,7 +17,6 @@ const PriceRange = () => {
   const { min, max } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
-  // const { updateQueryParams, filter, searchParams } = useQueryParam();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
@@ -30,15 +29,10 @@ const PriceRange = () => {
   const minPrice = pricesArr[0];
   const maxPrice = pricesArr.at(-1);
 
-  // const [min, setMin] = useState("0");
-  // const [max, setMax] = useState("0");
-
   useEffect(() => {
     if (minPrice !== undefined && maxPrice !== undefined) {
       dispatch(changeMinPrice(minPrice));
       dispatch(changeMaxPrice(maxPrice));
-      // setMin(minPrice);
-      // setMax(maxPrice);
       dispatch;
     }
   }, [minPrice, maxPrice]);
@@ -55,7 +49,6 @@ const PriceRange = () => {
     if (currentMin >= Number(max)) {
       currentMin = Number(max) - 1;
     }
-    // setMin(currentMin);
     dispatch(changeMinPrice(currentMin));
     currentParams.set("minprice", currentMin);
     navigate({ search: currentParams.toString() });
@@ -70,7 +63,6 @@ const PriceRange = () => {
     if (Number(currentMax) > maxPrice) {
       currentMax = maxPrice;
     }
-    // setMax(currentMax);
     dispatch(changeMaxPrice(currentMax));
     currentParams.set("maxprice", currentMax);
     navigate({ search: currentParams.toString() });
