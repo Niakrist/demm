@@ -32,6 +32,8 @@ const Filter = ({ mobile }) => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const [isFirstRender, setIsFirstRender] = useState(true);
+
   const { collections } = useSelector((state) => state.collections);
   const { colors } = useSelector((state) => state.colors);
   const { montage } = useSelector((state) => state.montage);
@@ -53,7 +55,14 @@ const Filter = ({ mobile }) => {
     dispatch(fetchPrice());
   }, [dispatch]);
 
+  //потом удалить, если не поможет
+  // const currentParams = new URLSearchParams(searchParams);
   useEffect(() => {
+    if (isFirstRender) {
+      setIsFirstRender(false);
+      return;
+    }
+
     const currentParams = new URLSearchParams(searchParams);
     if (collectionParams.length > 0) {
       currentParams.set("collection", collectionParams.join(","));
@@ -81,7 +90,6 @@ const Filter = ({ mobile }) => {
     if (max === maxPrice) {
       currentParams.delete("maxprice");
     }
-
     navigate({ search: currentParams.toString() });
   }, [
     collectionParams,
@@ -95,7 +103,22 @@ const Filter = ({ mobile }) => {
   ]);
 
   const handleToggleCollectionParams = (item) => {
+    // let collectionParams = [];
+    // if (currentParams.has("collection")) {
+    //   collectionParams = currentParams.get("collection").split(",");
+    // }
+    // collectionParams.push(item);
+
+    // if (collectionParams.length > 0) {
+    //   currentParams.set("collection", collectionParams.join(","));
+    // } else {
+    //   currentParams.delete("collection");
+    // }
+
+    // ("http://localhost:5173/catalog?collection=METRICA%2CABSOLUTE");
     dispatch(toggleCollectionParams(item));
+
+    // navigate({ search: currentParams.toString() });
   };
 
   const handleToggleColorParams = (item) => {
