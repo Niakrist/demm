@@ -52,8 +52,8 @@ const Filter = () => {
     dispatch(fetchPrice());
   }, [dispatch]);
 
-  const currentParams = new URLSearchParams(searchParams);
   useEffect(() => {
+    const currentParams = new URLSearchParams(searchParams);
     if (collectionParams.length > 0) {
       currentParams.set("collection", collectionParams.join(","));
     } else {
@@ -108,12 +108,15 @@ const Filter = () => {
   const typesList = transformObjectInArr(types);
 
   const handleReset = () => {
+    const currentParams = new URLSearchParams(searchParams);
     dispatch(resetFilter());
     dispatch(changeMinPrice(minPrice));
     dispatch(changeMaxPrice(maxPrice));
     currentParams.delete("minprice");
     currentParams.delete("maxprice");
     navigate({ search: currentParams.toString() });
+
+    console.log("searchParams.has: ", searchParams.has("category"));
   };
 
   return (
@@ -150,10 +153,8 @@ const Filter = () => {
       <PriceRange />
       <button
         onClick={handleReset}
-        className={clsx(
-          styles.resetFilter,
-          !!searchParams.size && styles.show
-        )}>
+        className={clsx(styles.resetFilter, !!searchParams.size && styles.show)}
+      >
         Сбросить фильтры
       </button>
     </div>
