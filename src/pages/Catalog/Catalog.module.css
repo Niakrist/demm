@@ -27,6 +27,9 @@
   .title {
     margin-bottom: 30px;
   }
+  .aside {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {

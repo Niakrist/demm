@@ -37,7 +37,6 @@ export const filterSlice = createSlice({
       state.min = Number(action.payload);
     },
     changeMaxPrice: (state, action) => {
-      console.log(action);
       state.max = Number(action.payload);
     },
     resetFilter: (state, action) => {

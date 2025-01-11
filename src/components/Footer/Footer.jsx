@@ -15,13 +15,13 @@ import Modal from "../Modal/Modal";
 import OrderModal from "../OrderModal/OrderModal";
 import ModalByNow from "../ModalByNow/ModalByNow";
 import { transformObjectInArr } from "../../utils/transformObjectInArr";
+import MobileFilter from "../MobileFilter/MobileFilter";
 
 const Footer = () => {
   const [isActiveInput, setIsActiveInput] = useState(false);
 
-  const { isShowModal, isOrderModal, isModalByNow } = useSelector(
-    (state) => state.isModal
-  );
+  const { isShowModal, isOrderModal, isModalByNow, isFilterModal } =
+    useSelector((state) => state.isModal);
 
   const { categories } = useSelector((state) => state.categories);
 
@@ -56,40 +56,35 @@ const Footer = () => {
                 <li className={styles.itemNav}>
                   <Link
                     className={styles.linkNav}
-                    to={`/catalog/?category=${categoriesList[0].id}`}
-                  >
+                    to={`/catalog/?category=${categoriesList[0].id}`}>
                     Смесители
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
                   <Link
                     className={styles.linkNav}
-                    to={`/catalog/?category=${categoriesList[1].id}`}
-                  >
+                    to={`/catalog/?category=${categoriesList[1].id}`}>
                     Душевые системы
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
                   <Link
                     className={styles.linkNav}
-                    to={`/catalog/?category=${categoriesList[2].id}`}
-                  >
+                    to={`/catalog/?category=${categoriesList[2].id}`}>
                     Душевые стойки
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
                   <Link
                     className={styles.linkNav}
-                    to={`/catalog/?category=${categoriesList[3].id}`}
-                  >
+                    to={`/catalog/?category=${categoriesList[3].id}`}>
                     Изливы
                   </Link>
                 </li>
                 <li className={styles.itemNav}>
                   <Link
                     className={styles.linkNav}
-                    to={`/catalog/?category=${categoriesList[4].id}`}
-                  >
+                    to={`/catalog/?category=${categoriesList[4].id}`}>
                     Аксессуары
                   </Link>
                 </li>
@@ -135,8 +130,7 @@ const Footer = () => {
                   className={clsx(
                     styles.form,
                     isActiveInput && styles.formActive
-                  )}
-                >
+                  )}>
                   <label className={styles.label}>
                     <input
                       className={styles.input}
@@ -179,6 +173,7 @@ const Footer = () => {
         </Container>
       </div>
       {isMenu && <MobileMenu />}
+      {isFilterModal && <MobileFilter />}
       {isShowModal && <Modal />}
       {isModalByNow && <ModalByNow />}
       {isOrderModal && <OrderModal />}

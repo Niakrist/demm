@@ -44,9 +44,9 @@ const Catalog = () => {
                 ? categories?.[urlCategory?.category]
                 : "Каталог"}
             </h1>
-            <CatalogNav />
+            {!urlCategory?.category && <CatalogNav />}
             <div className={styles.wrapper}>
-              <aside>
+              <aside className={styles.aside}>
                 <Filter />
               </aside>
               <ProductList products={products} />
