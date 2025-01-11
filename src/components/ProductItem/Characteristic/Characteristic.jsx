@@ -16,7 +16,7 @@ const Characteristic = ({ data }) => {
     <>
       <h2 className={styles.title}>Характеристики</h2>
       <div className={isShow ? styles.tableWrapperActive : styles.tableWrapper}>
-        <table>
+        <table className={styles.table}>
           <thead></thead>
           <tbody>
             {data.map((item) => (

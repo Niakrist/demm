@@ -12,15 +12,18 @@ import Price from "../Price/Price";
 import Description from "./Description/Description";
 import Slider from "../Slider/Slider";
 import { transformObjectInArr } from "../../utils/transformObjectInArr";
+import { fetchProducts } from "../../store/productsSlice/productsSlice";
 
 const ProductItem = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
   const { productItem } = useSelector((state) => state.productItem);
+  const { products, isLoading } = useSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(fetchProductItem(id));
+    dispatch(fetchProducts());
   }, [dispatch, id]);
 
   if (!productItem) return;
@@ -56,7 +59,8 @@ const ProductItem = () => {
                     color.id === Object.keys(productItem.color)[0] &&
                       styles.active
                   )}
-                  key={color.id}>
+                  key={color.id}
+                >
                   <Link to={`/catalog/${createLinkColor(id, color.id)}`}>
                     <img
                       className={styles.colorImg}
@@ -83,8 +87,13 @@ const ProductItem = () => {
           <Description productItem={productItem} />
         </div>
       </Container>
-      <Slider title={"Коллекция ACIARIUM INOX"} />
-      <Slider title={"Подберите дополнительно"} card />
+
+      {isLoading && (
+        <Slider products={products} title={"Коллекция ACIARIUM INOX"} />
+      )}
+      {isLoading && (
+        <Slider products={products} title={"Подберите дополнительно"} card />
+      )}
     </section>
   );
 };

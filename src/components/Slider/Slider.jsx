@@ -9,9 +9,10 @@ import BubbleList from "../../ui/BubbleList/BubbleList";
 import SlideItem from "./SlideItem/SlideItem";
 import ProductCard from "../ProductList/ProductCard/ProductCard";
 
-const Slider = ({ title, card }) => {
-  const { products } = useSelector((state) => state.products);
+const Slider = ({ products, title, card }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  console.log("products: ", products);
 
   const handleNextSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -39,25 +40,26 @@ const Slider = ({ title, card }) => {
         <button className={styles.btn} onClick={handlePrev}>
           <Icon name="iconArrow" className={styles.arrowLeft} />
         </button>
-        <Container>
-          <div className={styles.sliderContainer}>
-            <ul
-              className={styles.sliderList}
-              style={{ transform: `translateX(-${currentIndex * 330}px)` }}>
-              {products.map((product) => {
-                return (
-                  <li className={styles.item} key={`item-${product.id}`}>
-                    {card ? (
-                      <ProductCard product={product} />
-                    ) : (
-                      <SlideItem product={product} />
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </Container>
+        {/* <Container> */}
+        <div className={styles.sliderContainer}>
+          <ul
+            className={styles.sliderList}
+            style={{ transform: `translateX(-${currentIndex * 330}px)` }}
+          >
+            {products.map((product) => {
+              return (
+                <li className={styles.item} key={`item-${product.id}`}>
+                  {card ? (
+                    <ProductCard product={product} />
+                  ) : (
+                    <SlideItem product={product} />
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        {/* </Container> */}
         <button className={styles.btn} onClick={handleNextSlide}>
           <Icon name="iconArrow" className={styles.arrow} />
         </button>

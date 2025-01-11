@@ -121,6 +121,10 @@
 }
 
 @media (max-width: 1279px) {
+  .productItem {
+    padding-top: 25px;
+  }
+
   .productWrapper {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto auto auto;
@@ -129,11 +133,14 @@
   .title {
     grid-column: 1 / 3;
     grid-row: 1 / 2;
+    margin-bottom: 10px;
+    line-height: 1.15;
   }
 
   .presence {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    justify-self: flex-end;
   }
 
   .sliderGood {
@@ -151,5 +158,72 @@
   .price {
     grid-column: 2 / 3;
     grid-row: 4 / 6;
+  }
+  .description {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .productItem {
+    padding-top: 15px;
+  }
+  .productWrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto;
+    column-gap: 20px;
+  }
+
+  .title {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #122952;
+  }
+
+  .presence {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .sliderGood {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  .colorWrapper {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    margin-bottom: 20px;
+  }
+
+  .characteristic {
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+    margin-bottom: 20px;
+  }
+  .price {
+    grid-column: 1 / 2;
+    grid-row: 6 / 7;
+  }
+
+  .color {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: #122952;
+  }
+
+  .color span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    color: #4d526c;
   }
 }

@@ -30,14 +30,14 @@
 @media (max-width: 1279px) {
   .presence {
     column-gap: 20px;
-    justify-self: end;
   }
 }
 
 @media (max-width: 767px) {
   .presence {
-    flex-direction: column-reverse;
+    /* flex-direction: row-reverse; */
     align-items: flex-start;
+    flex-wrap: wrap;
     row-gap: 8px;
     font-size: 10px;
   }

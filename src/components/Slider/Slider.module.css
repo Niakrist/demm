@@ -15,7 +15,7 @@
   margin-bottom: 80px;
   display: grid;
   align-items: center;
-  /* justify-self: center; */
+  justify-self: center;
   grid-template-columns: 40px 1fr 40px;
   grid-template-rows: 1fr;
   gap: 24px;
@@ -24,6 +24,10 @@
 .sliderContainer {
   overflow: hidden;
   border-radius: 10px;
+  max-width: 1336px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
 }
 
 .sliderList {
@@ -79,5 +83,11 @@
 
   .sliderList {
     column-gap: 20px;
+  }
+}
+
+@media (max-width: 1279px) {
+  .sliderContainer {
+    padding: 0;
   }
 }
