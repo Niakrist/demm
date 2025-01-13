@@ -36,8 +36,6 @@ const Footer = () => {
 
   const { isMenu } = useSelector((state) => state.menu);
 
-  console.log("isMenu: ", isMenu);
-
   if (!categories) return;
 
   return (

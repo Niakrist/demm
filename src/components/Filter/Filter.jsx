@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { useFilterParams } from "../../hooks/useFilterParams";
 import { fetchCollections } from "../../store/collectionsSlice/collectionsSlice";
 import { fetchColors } from "../../store/colorsSLice/colorsSlice";
 import {
@@ -53,6 +55,9 @@ const Filter = ({ mobile }) => {
     dispatch(fetchPrice());
   }, [dispatch]);
 
+  //потом удалить, если не поможет
+  // const currentParams = new URLSearchParams(searchParams);
+
   useEffect(() => {
     if (isFirstRender) {
       setIsFirstRender(false);
@@ -60,23 +65,28 @@ const Filter = ({ mobile }) => {
     }
 
     const currentParams = new URLSearchParams(searchParams);
+
+    const encodeValues = (params) => {
+      return params.map((param) => encodeURIComponent(String(param))).join(",");
+    };
+
     if (collectionParams.length > 0) {
-      currentParams.set("collection", collectionParams.join(","));
+      currentParams.set("collection", encodeValues(collectionParams));
     } else {
       currentParams.delete("collection");
     }
     if (colorParams.length > 0) {
-      currentParams.set("color", colorParams.join(","));
+      currentParams.set("color", encodeValues(colorParams));
     } else {
       currentParams.delete("color");
     }
     if (montageParams.length > 0) {
-      currentParams.set("montage", montageParams.join(","));
+      currentParams.set("montage", encodeValues(montageParams));
     } else {
       currentParams.delete("montage");
     }
     if (typeParams.length > 0) {
-      currentParams.set("type", typeParams.join(","));
+      currentParams.set("type", encodeValues(typeParams));
     } else {
       currentParams.delete("type");
     }
@@ -86,7 +96,9 @@ const Filter = ({ mobile }) => {
     if (max === maxPrice) {
       currentParams.delete("maxprice");
     }
-    navigate({ search: currentParams.toString() });
+
+    const urlWithoutSpace = currentParams.toString().replace("%2520", "%20");
+    navigate({ search: urlWithoutSpace });
   }, [
     collectionParams,
     colorParams,
@@ -128,12 +140,9 @@ const Filter = ({ mobile }) => {
   //   dispatch(resetFilter());
   //   dispatch(changeMinPrice(minPrice));
   //   dispatch(changeMaxPrice(maxPrice));
-  //   currentParams.delete("minprice");
-  //   currentParams.delete("maxprice");
   //   navigate({ search: currentParams.toString() });
-
-  //   console.log("searchParams.has: ", searchParams.has("category"));
   // };
+
   return (
     <div className={clsx(styles.filter)}>
       {/* <DropDown items={categoriesLists} type="category" name="Категория" /> */}
@@ -178,8 +187,7 @@ const Filter = ({ mobile }) => {
             className={clsx(
               styles.buttonApply,
               !!searchParams.size && styles.show
-            )}
-          >
+            )}>
             Применить
           </button>
         )}
